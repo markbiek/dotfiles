@@ -1,0 +1,137 @@
+set gfn=Consolas:h11
+scriptencoding utf-8
+set encoding=utf-8
+set fileformat=unix
+set fileformats=unix,dos
+
+set nocompatible
+source $VIMRUNTIME/mswin.vim
+behave mswin
+
+set showmode
+
+syntax enable
+filetype indent on
+" set autoindent width to 4 spaces (see
+" " " http://www.vim.org/tips/tip.php?tip_id=83)
+set et
+set sw=4
+set smarttab
+set number
+
+set ignorecase
+set smartcase
+
+set laststatus=2
+set statusline=
+set statusline+=%m\ 
+set statusline+=%n\ 
+set statusline+=\"%F\"\ 
+set statusline+=%c,\ %l\/\%L\  
+set statusline+=\ chr(%b)
+set statusline+=\ [%{&ff=='unix'?'unix':(&ff=='mac'?'mac':'windows')}]
+set statusline+=\ [%{&fenc!=''?&fenc:&enc}]
+
+if version >= 700
+  au InsertEnter * hi StatusLine term=reverse ctermbg=2 gui=undercurl guisp=Green
+  au InsertLeave * hi StatusLine term=reverse ctermfg=9 ctermbg=4 gui=bold,reverse
+endif
+
+"nnoremap <up> <nop>
+"nnoremap <down> <nop>
+"nnoremap <left> <nop>
+"nnoremap <right> <nop>
+"inoremap <up> <nop>
+"inoremap <down> <nop>
+"inoremap <left> <nop>
+"inoremap <right> <nop>
+
+nnoremap <A-A> <C-a>
+nnoremap <A-x> <C-x>
+
+map     <F12>   :nohlsearch<CR>
+imap    <F12>   <ESC>:nohlsearch<CR>i
+vmap    <F12>   <ESC>:nohlsearch<CR>gv
+
+map <F4> <ESC>:NERDTree<CR>
+map <F5> <ESC>:NERDTreeClose<CR>   
+
+"Split window mappings
+map <Leader><Leader> <ESC>:vsplit<CR>:wincmd l<cr>
+map <Leader>/   <ESC>:split<CR>:wincmd j<CR>
+nmap <silent> <A-Up> :wincmd k<CR>
+nmap <silent> <A-Down> :wincmd j<CR>
+nmap <silent> <A-Left> :wincmd h<CR>
+nmap <silent> <A-Right> :wincmd l<CR>
+
+"Buffer mappings
+map <F6> :buffers<CR>
+map     <C-LEFT>  <ESC>:bp<CR>
+map     <C-RIGHT> <ESC>:bn<CR>
+map     <Leader>1 <ESC>:b1<CR>
+map     <Leader>2 <ESC>:b2<CR>
+map     <Leader>3 <ESC>:b3<CR>
+map     <Leader>4 <ESC>:b4<CR>
+map     <Leader>5 <ESC>:b5<CR>
+map     <Leader>6 <ESC>:b6<CR>
+map     <Leader>7 <ESC>:b7<CR>
+map     <Leader>8 <ESC>:b8<CR>
+map     <Leader>9 <ESC>:b9<CR>
+
+"HTML replacement mappings
+map <Leader>' xi&rsquo;<esc>
+map <Leader>l' xi&lsquo;<esc>
+map <Leader>" xi&rdquo;<esc>
+map <Leader>l" xi&ldquo;<esc>
+map <Leader>b xi&bull;<Esc>
+map <Leader>R xi&reg;<Esc>
+map <Leader>C xi&copy;<Esc>
+map <Leader>T xi&trade;<Esc>
+map <Leader>& xi&amp;<Esc>
+map <Leader>L xi&lt;<Esc>
+map <Leader>G xi&gt;<Esc>
+map <Leader><SPACE> xi&nbsp;<Esc>
+map <Leader>- xi&ndash;<Esc>
+map <Leader>_ xi&mdash;<Esc>
+map <Leader>< xi&lt;<Esc>
+map <Leader>> xi&gt;<Esc>
+map <Leader><ENTER> $a<br /><Esc>j
+
+map <Leader>wli ^i<li><Esc>$a</li><Esc>j
+map <Leader>wa ^i<a href=""><Esc>$a</a><Esc>j
+map <Leader>wwa bi<a href=""><Esc>ea</a><Esc>
+map <Leader>wp ^i<p><Esc>$a</p><Esc>j
+map <Leader>wb ^i<strong><Esc>$a</strong><Esc>j
+map <Leader>wtr ^i<tr><Esc>$a</tr><Esc>j
+map <Leader>wtd ^i<td><Esc>$a</td><Esc>j
+map <Leader>wth ^i<th><Esc>$a</th><Esc>j
+map <Leader>wh1 ^i<h1><Esc>$a</h1><Esc>j
+map <Leader>wh2 ^i<h2><Esc>$a</h2><Esc>j
+map <Leader>wh3 ^i<h3><Esc>$a</h3><Esc>j
+map <Leader>wh4 ^i<h4><Esc>$a</h4><Esc>j
+map <Leader>wi ^i<em><Esc>$a</em><Esc>j
+map <Leader>wb ^i<strong><Esc>$a</strong><Esc>j
+map <Leader>wdt ^i<dt><Esc>$a</dt><Esc>j
+map <Leader>wdd ^i<dd><Esc>$a</dd><Esc>j
+map <Leader>w_( ^i<?=_("<Esc>$a")?><Esc>
+map <Leader>w" ^i"<Esc>$a"<Esc>j
+map <Leader>/* ^i/*<Esc>$a<Esc>$a*/
+
+nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
+
+if has("multi_byte")    " if not, we need to recompile
+  if &enc !~? '^u'      " if the locale 'encoding' starts with u or U
+                        " then Unicode is already set
+    if &tenc == ''
+      let &tenc = &enc  " save the keyboard charset
+    endif
+    set enc=utf-8       " to support Unicode fully, we need to be able
+                        " to represent all Unicode codepoints in memory
+  endif
+  set fencs=ucs-bom,utf-8,latin1
+  setg bomb             " default for new Unicode files
+  setg fenc=latin1      " default for files created from scratch
+  set encoding=utf8
+else
+  echomsg 'Warning: Multibyte support is not compiled-in.'
+endif
