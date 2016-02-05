@@ -1,8 +1,6 @@
-set gfn=Consolas:h11
 scriptencoding utf-8
 set encoding=utf-8
 set fileformat=unix
-set fileformats=unix,dos
 set nocompatible
 set showmode
 
@@ -54,6 +52,12 @@ if version >= 700
   hi StatusLineNC term=reverse ctermbg=White gui=undercurl guisp=White
   au InsertEnter * hi StatusLine term=bold,reverse ctermbg=Green gui=undercurl guisp=Green
 endif
+
+"vim-phpqa
+let g:phpqa_codesniffer_args = "-ns --standard=Via"
+let g:phpqa_codesniffer_autorun = 1
+let g:phpqa_messdetector_autorun = 0
+let g:phpqa_codecoverage_autorun = 0
 
 "nnoremap <up> <nop>
 "nnoremap <down> <nop>
