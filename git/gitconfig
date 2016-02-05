@@ -1,0 +1,49 @@
+[user]
+	name = Mark Biek
+	email = support@janustech.net
+
+[color]
+    ui = auto
+    interactive = auto
+[color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = cyan
+
+[core]
+    editor = vim
+    pager = less -r
+    excludesfile = /Users/mark/.gitignore
+
+[alias]
+    nm = branch --no-merged     
+    branches = branch -a
+    st = status
+    delete-remote = push origin --delete
+    cleanupdev = !git branch --merged dev | grep -v 'dev$' | xargs -r git branch -d
+    cleanuplocal = !git remote prune origin && git gc && git clean -df
+    pushup = push --set-upstream origin 
+    cleanupmaster = !git branch --merged master | grep -v 'master$' | xargs -r git branch -d
+
+    #log aliases
+    l = log --oneline --decorate
+    lg = log --graph --abbrev-commit --decorate --format=format:'%w(80, 0, 2)%C(bold yellow)%H%C(reset)%n%C(bold red)%ai%C(reset) %C(bold green)(%ar)%C(reset) %C(bold blue)(%h)%C(reset) %C(bold yellow)%d%C(reset)%n''%w(80, 2, 4)%s %n- %an% %n' --all
+    hist = log --pretty=format:'%Cred%h%Creset %C(bold blue)<%an>%Creset%C(yellow)%d%Creset %Cgreen(%cr)%Creset%n%w(80,8,8)%s' --graph
+    histfull = log --pretty=format:'%Cred%h%Creset %C(bold blue)<%an>%Creset%C(yellow)%d%Creset %Cgreen(%cr)%Creset%n%w(80,8,8)%s%n' --graph --name-status
+    llog = log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=iso
+    changelog = log --pretty=format:'%Cgreen%d %Creset%s' --date=iso
+    ls = log --pretty=format:'%C(yellow)%p..%h %C(white dim)%cd %<|(49,trunc)%an %C(reset)%s' --date=short --abbrev=8 --no-merges
+
+[push]
+	default = simple
+[rebase]
+	autosquash = true
