@@ -1,6 +1,6 @@
 [user]
 	name = Mark Biek
-	email = support@janustech.net
+	email = mark@viastudio.com
 
 [color]
     ui = auto
@@ -22,10 +22,11 @@
 [core]
     editor = vim
     pager = less -r
-    excludesfile = /Users/mark/.gitignore
+    excludesfile = /home/mark/.gitignore
 
 [alias]
     alias = config --get-regexp alias
+    pushup = push --set-upstream origin 
     nm = branch --no-merged     
     branches = branch -a
     st = status
