@@ -25,6 +25,7 @@
     excludesfile = /Users/mark/.gitignore
 
 [alias]
+    alias = config --get-regexp alias
     nm = branch --no-merged     
     branches = branch -a
     st = status
