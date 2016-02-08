@@ -29,7 +29,13 @@
     nm = branch --no-merged     
     branches = branch -a
     st = status
-    delete-remote = push origin --delete
+    cp = cherry-pick
+    co = checkout
+    cob = checkout -b
+    cm = !git add -A && git commit
+    r = reset
+    amend = commit -a --amend
+    ec = config --global -e
     cleanupdev = !git branch --merged dev | grep -v 'dev$' | xargs -r git branch -d
     cleanuplocal = !git remote prune origin && git gc && git clean -df
     pushup = push --set-upstream origin 
