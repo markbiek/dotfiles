@@ -40,6 +40,7 @@
     cleanuplocal = !git remote prune origin && git gc && git clean -df
     pushup = push --set-upstream origin 
     cleanupmaster = !git branch --merged master | grep -v 'master$' | xargs -r git branch -d
+    pullbase = !~/dev/dotfiles/git/pullbase.py --remote-branch 
 
     #log aliases
     l = log --oneline --decorate
