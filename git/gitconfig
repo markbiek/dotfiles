@@ -38,9 +38,8 @@
     ec = config --global -e
     cleanupdev = !git branch --merged dev | grep -v 'dev$' | xargs -r git branch -d
     cleanuplocal = !git remote prune origin && git gc && git clean -df
-    pushup = push --set-upstream origin 
-    pushup = !~/dev/dotfiles/git/pushup
     cleanupmaster = !git branch --merged master | grep -v 'master$' | xargs -r git branch -d
+    pushup = !git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)
     pullbase = !~/dev/dotfiles/git/pullbase.py --remote-branch 
 
     #log aliases
