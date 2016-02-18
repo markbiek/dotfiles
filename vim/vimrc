@@ -12,8 +12,9 @@ call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
-" let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'mxw/vim-jsx'
+Plugin 'pangloss/vim-javascript'
 
 " Plugins go here
 "
@@ -42,6 +43,8 @@ set statusline+=\ chr(%b)
 set statusline+=\ [%{&ff=='unix'?'unix':(&ff=='mac'?'mac':'windows')}]
 set statusline+=\ [%{&fenc!=''?&fenc:&enc}]
 set statusline+=\ %n\ 
+
+let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
 if version >= 700
   au InsertEnter * hi StatusLine term=reverse ctermbg=2 gui=undercurl guisp=Green
