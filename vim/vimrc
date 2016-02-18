@@ -23,12 +23,12 @@ set smartcase
 set laststatus=2
 set statusline=
 set statusline+=%m\ 
-set statusline+=%n\ 
 set statusline+=\"%F\"\ 
 set statusline+=%c,\ %l\/\%L\  
 set statusline+=\ chr(%b)
 set statusline+=\ [%{&ff=='unix'?'unix':(&ff=='mac'?'mac':'windows')}]
 set statusline+=\ [%{&fenc!=''?&fenc:&enc}]
+set statusline+=\ %n\ 
 
 if version >= 700
   au InsertEnter * hi StatusLine term=reverse ctermbg=2 gui=undercurl guisp=Green
