@@ -67,9 +67,6 @@ map     <F12>   :nohlsearch<CR>
 imap    <F12>   <ESC>:nohlsearch<CR>i
 vmap    <F12>   <ESC>:nohlsearch<CR>gv
 
-map <F4> <ESC>:NERDTree<CR>
-map <F5> <ESC>:NERDTreeClose<CR>   
-
 "Split window mappings
 map <Leader><Leader> <ESC>:vsplit<CR>:wincmd l<cr>
 map <Leader>/   <ESC>:split<CR>:wincmd j<CR>
