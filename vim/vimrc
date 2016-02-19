@@ -63,6 +63,9 @@ endif
 nnoremap <A-A> <C-a>
 nnoremap <A-x> <C-x>
 
+nmap    j       gj
+nmap    k       gk
+
 map     <F12>   :nohlsearch<CR>
 imap    <F12>   <ESC>:nohlsearch<CR>i
 vmap    <F12>   <ESC>:nohlsearch<CR>gv
