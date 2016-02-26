@@ -37,6 +37,8 @@
     fixup = !git add -A && git commit --fixup
     r = reset
     amend = commit -a --amend --no-edit
+    save = !git cm -m "SAVEPOINT"
+    wip = commit -am "WIP"
     ec = config --global -e
     cleanupdev = !git branch --merged dev | grep -v 'dev$' | xargs -r git branch -d
     cleanuplocal = !git remote prune origin && git gc && git clean -df
