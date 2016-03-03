@@ -42,6 +42,7 @@
     pushup = !git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)
     pullbase = !~/dev/dotfiles/git/pullbase.py --remote-branch 
     up = !git pull --rebase --prune $@ && git submodule update --init --recursive
+    upstream = !git pull upstream $(git rev-parse --abbrev-ref HEAD) --rebase --prune $@ && git submodule update --init --recursive
     save = !git add -A && git commit -m 'SAVEPOINT'
     wip = commit -am "WIP" 
     undo = reset HEAD~1 --mixed
