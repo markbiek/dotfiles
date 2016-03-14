@@ -14,11 +14,13 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'mxw/vim-jsx'
 Plugin 'pangloss/vim-javascript'
 Bundle 'joonty/vim-phpqa.git'
+Bundle 'git@bitbucket.org:kisom/eink.vim.git'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
 
 syntax enable
+colo eink
 filetype indent on
 " set autoindent width to 4 spaces (see
 " " " http://www.vim.org/tips/tip.php?tip_id=83)
