@@ -14,7 +14,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'mxw/vim-jsx'
 Plugin 'pangloss/vim-javascript'
 Bundle 'joonty/vim-phpqa.git'
-Bundle 'git@bitbucket.org:kisom/eink.vim.git'
+Bundle 'https://baldibiek@bitbucket.org/kisom/eink.vim.git'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
