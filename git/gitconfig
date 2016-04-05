@@ -33,6 +33,7 @@
     co = checkout
     cob = checkout -b
     cm = !git add -A && git commit
+    fixup = !git add -A && git commit --fixup
     r = reset
     amend = commit -a --amend
     ec = config --global -e
