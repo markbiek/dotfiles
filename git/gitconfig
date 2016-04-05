@@ -47,6 +47,8 @@
     wip = commit -am "WIP" 
     undo = reset HEAD~1 --mixed
     wipe = !git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard
+    delbr = branch -d
+    delrbr = push origin --delete
 
     #log aliases
     l = log --oneline --decorate
