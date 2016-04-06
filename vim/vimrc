@@ -99,7 +99,7 @@ map     <Leader>9 <ESC>:b9<CR>
 
 "Other F keys
 map <F4> :!pwd<CR>
-map <F5> :so $MYVIMRC
+map <F5> :so $MYVIMRC<CR>
 
 "HTML replacement mappings
 map <Leader>' xi&rsquo;<esc>
