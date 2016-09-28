@@ -51,8 +51,9 @@ let g:phpqa_messdetector_autorun = 0
 let g:phpqa_codecoverage_autorun = 0
 
 if version >= 700
-  au InsertEnter * hi StatusLine term=reverse ctermbg=2 gui=undercurl guisp=Green
-  au InsertLeave * hi StatusLine term=reverse ctermfg=9 ctermbg=4 gui=bold,reverse
+  hi StatusLine term=bold,reverse ctermbg=Green gui=undercurl guisp=Green
+  hi StatusLineNC term=reverse ctermbg=White gui=undercurl guisp=White
+  au InsertEnter * hi StatusLine term=bold,reverse ctermbg=Green gui=undercurl guisp=Green
 endif
 
 "nnoremap <up> <nop>
