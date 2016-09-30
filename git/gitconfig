@@ -29,13 +29,14 @@
     nm = branch --no-merged     
     branches = branch -a
     st = status
+    s = status --short --branch
     cp = cherry-pick
     co = checkout
     cob = checkout -b
     cm = !git add -A && git commit
     fixup = !git add -A && git commit --fixup
     r = reset
-    amend = commit -a --amend
+    amend = commit -a --amend --no-edit
     ec = config --global -e
     cleanupdev = !git branch --merged dev | grep -v 'dev$' | xargs -r git branch -d
     cleanuplocal = !git remote prune origin && git gc && git clean -df
