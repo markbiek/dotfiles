@@ -60,7 +60,7 @@ endif
 
 "vim-phpqa
 let g:phpqa_codesniffer_args = "-ns --standard=Via"
-let g:phpqa_codesniffer_cmd="~mark/bin/phpcs"
+let g:phpqa_codesniffer_cmd="phpcs"
 let g:phpqa_codesniffer_autorun = 1
 let g:phpqa_messdetector_autorun = 0
 let g:phpqa_codecoverage_autorun = 0
