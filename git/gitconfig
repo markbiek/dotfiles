@@ -23,6 +23,7 @@
     editor = vim
     pager = less -r
     excludesfile = /Users/mark/.gitignore
+    fileMode = false
 
 [alias]
     alias = config --get-regexp alias
