@@ -18,6 +18,7 @@ Plugin 'mxw/vim-jsx'
 Plugin 'pangloss/vim-javascript'
 Plugin 'scrooloose/nerdTree'
 Bundle 'joonty/vim-phpqa.git'
+Bundle 'craigemery/vim-autotag'
 Bundle 'https://baldibiek@bitbucket.org/kisom/eink.vim.git'
 
 call vundle#end()            " required
