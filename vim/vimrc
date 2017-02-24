@@ -36,6 +36,7 @@ set relativenumber
 
 set ignorecase
 set smartcase
+set nowritebackup
 
 set laststatus=2
 set statusline=
