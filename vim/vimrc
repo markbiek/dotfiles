@@ -28,7 +28,6 @@ filetype indent on
 set et
 set sw=4
 set smarttab
-set number
 set relativenumber
 
 set ignorecase
