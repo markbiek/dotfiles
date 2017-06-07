@@ -52,6 +52,7 @@
     wipe = !git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard
     delbr = branch -d
     delrbr = push origin --delete
+    rcont = !git add -A && git rebase --continue
 
     #log aliases
     l = log --oneline --decorate
