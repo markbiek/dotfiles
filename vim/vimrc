@@ -17,6 +17,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'mxw/vim-jsx'
 Plugin 'pangloss/vim-javascript'
 Plugin 'scrooloose/nerdTree'
+Plugin 'qpkorr/vim-bufkill'
 Bundle 'joonty/vim-phpqa.git'
 Bundle 'https://baldibiek@bitbucket.org/kisom/eink.vim.git'
 
