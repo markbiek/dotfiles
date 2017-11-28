@@ -2,3 +2,4 @@
 vim/vim/bundle/
 !vim/vim/bundle/Vundle.vim
 vim/vim/.netrwhist
+zsh/plugins/
