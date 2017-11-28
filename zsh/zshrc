@@ -18,6 +18,13 @@ ZSH_THEME="ys"
 
 plugins=(
   git
+  aws
+  brew
+  composer
+  jsontools
+  laravel5
+  npm
+  rsync
 )
 
 source $ZSH/oh-my-zsh.sh
