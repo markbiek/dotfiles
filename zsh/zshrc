@@ -1,0 +1,59 @@
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+############################################################################
+# Plugins
+autoload -U zmv
+autoload zcalc
+############################################################################
+
+############################################################################
+# oh-my-zsh
+export ZSH=/Users/mark/.oh-my-zsh
+ZSH_THEME="ys"
+
+plugins=(
+  git
+  aws
+  brew
+  composer
+  jsontools
+  laravel5
+  npm
+  rsync
+)
+
+source $ZSH/oh-my-zsh.sh
+############################################################################
+
+############################################################################
+# Command prompt
+source ~/dev/dotfiles/zsh/plugins/zsh-git-prompt/zshrc.sh
+PROMPT='%~%b %# '
+RPROMPT='$(git_super_status)' # git status goes on the right
+############################################################################
+
+
+################################################################################
+# Aliases
+alias ds='sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder;'
+alias vh='pushd ~/dev/vagrant && vagrant hostmanager && vagrant provision && popd'
+alias tls="tmux ls"
+alias tt="tmux a -t"
+alias tn="tmux new -s"
+
+alias areverse="adb reverse tcp:8081 tcp:8081"
+alias alogcat="adb logcat *:S ReactNative:V ReactNativeJS:V"
+
+alias spva='ssh viaadmin@216.135.72.232'
+alias sw1='ssh -L 3308:localhost:3306 viaadmin@web1.viastudio.com'
+alias scj='ssh -i ~/.ssh/vt.rsa viaadmin@jenkins2.viatools.com'
+alias svt='scj'
+alias sb='ssh bang'
+alias sjt='ssh -i ~/.ssh/mbb.rsa -L 5000:127.0.0.1:5000 -L 5984:127.0.0.1:5984 -L 3000:localhost:3000 -L 3001:localhost:3001 -L 8082:localhost:8082 -L 8080:localhost:8080 -L 3307:localhost:3306 mark@janustech.net'
+################################################################################
+
+############################################################################
+# Settings
+bindkey -v
+setopt CORRECT
+############################################################################

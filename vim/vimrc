@@ -4,6 +4,9 @@ set fileformat=unix
 set nocompatible
 set showmode
 
+" fzf fuzzy search
+set rtp+=/usr/local/opt/fzf
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -11,6 +14,9 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'mxw/vim-jsx'
 Plugin 'pangloss/vim-javascript'
+Plugin 'scrooloose/nerdTree'
+Plugin 'qpkorr/vim-bufkill'
+Plugin 'tpope/vim-surround'
 Bundle 'joonty/vim-phpqa.git'
 Bundle 'https://baldibiek@bitbucket.org/kisom/eink.vim.git'
 
