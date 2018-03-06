@@ -8,6 +8,7 @@ autoload zcalc
 
 ############################################################################
 # oh-my-zsh
+export DISABLE_AUTO_UPDATE="true"
 export ZSH=/Users/mark/.oh-my-zsh
 ZSH_THEME="ys"
 
@@ -20,6 +21,9 @@ plugins=(
   laravel5
   npm
   rsync
+  syntax-highlighting
+  history
+  history-substring-search
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -46,6 +50,7 @@ alias alogcat="adb logcat *:S ReactNative:V ReactNativeJS:V"
 
 alias spva='ssh viaadmin@216.135.72.232'
 alias sw1='ssh -L 3308:localhost:3306 viaadmin@web1.viastudio.com'
+alias sw2='ssh -L 3308:localhost:3306 viaadmin@web2.viastudio.com'
 alias scj='ssh -i ~/.ssh/vt.rsa viaadmin@jenkins2.viatools.com'
 alias svt='scj'
 alias sb='ssh bang'
@@ -56,4 +61,10 @@ alias sjt='ssh -i ~/.ssh/mbb.rsa -L 5000:127.0.0.1:5000 -L 5984:127.0.0.1:5984 -
 # Settings
 bindkey -v
 setopt CORRECT
+
+bindkey -v
+bindkey '^R' history-incremental-pattern-search-backward
+
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
 ############################################################################
