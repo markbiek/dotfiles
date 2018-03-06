@@ -39,9 +39,9 @@
     r = reset
     amend = commit -a --amend --no-edit
     ec = config --global -e
-    cleanupdev = !git branch --merged dev | grep -v 'dev$' | xargs -r git branch -d
+    cleanupdev = !git branch --merged dev | grep -v 'dev$' | xargs  git branch -d
     cleanuplocal = !git remote prune origin && git gc && git clean -df
-    cleanupmaster = !git branch --merged master | grep -v 'master$' | xargs -r git branch -d
+    cleanupmaster = !git branch --merged master | grep -v 'master$' | xargs  git branch -d
     pushup = !git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)
     sync = !git upstream && git pushup
     pullbase = !~/dev/dotfiles/git/pullbase.py --remote-branch 
