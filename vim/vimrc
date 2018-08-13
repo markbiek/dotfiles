@@ -14,8 +14,8 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'mxw/vim-jsx'
-Plugin 'pangloss/vim-javascript'
+" Plugin 'mxw/vim-jsx'
+" Plugin 'pangloss/vim-javascript'
 Plugin 'scrooloose/nerdTree'
 Plugin 'qpkorr/vim-bufkill'
 Plugin 'tpope/vim-surround'
@@ -49,10 +49,6 @@ set statusline+=\ [%{&fenc!=''?&fenc:&enc}]
 set statusline+=\ %n\ 
 
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
-let g:phpqa_codesniffer_args = "-ns --standard=Via"
-let g:phpqa_codesniffer_autorun = 1 
-let g:phpqa_messdetector_autorun = 0 
-let g:phpqa_codecoverage_autorun = 0
 
 if version >= 700
   hi StatusLine term=bold,reverse ctermbg=Green gui=undercurl guisp=Green
@@ -60,6 +56,16 @@ if version >= 700
   au InsertEnter * hi StatusLine term=bold,reverse ctermbg=Green gui=undercurl guisp=Green
 endif
 
+<<<<<<< Updated upstream
+=======
+"vim-phpqa
+let g:phpqa_codesniffer_args = "-ns --standard=Via"
+let g:phpqa_codesniffer_cmd="phpcs"
+let g:phpqa_codesniffer_autorun = 0
+let g:phpqa_messdetector_autorun = 0
+let g:phpqa_codecoverage_autorun = 0
+
+>>>>>>> Stashed changes
 "nnoremap <up> <nop>
 "nnoremap <down> <nop>
 "nnoremap <left> <nop>
