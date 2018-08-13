@@ -23,6 +23,8 @@
     editor = vim
     pager = less -r
     excludesfile = /home/mark/.gitignore
+    fileMode = false
+    text=auto
 
 [alias]
     alias = config --get-regexp alias
@@ -41,16 +43,16 @@
     save = !git cm -m "SAVEPOINT"
     wip = commit -am "WIP"
     ec = config --global -e
-    cleanupdev = !git branch --merged dev | grep -v 'dev$' | xargs -r git branch -d
+    cleanupdev = !git branch --merged dev | grep -v 'dev$' | xargs  git branch -d
     cleanuplocal = !git remote prune origin && git gc && git clean -df
-    cleanupmaster = !git branch --merged master | grep -v 'master$' | xargs -r git branch -d
+    cleanupmaster = !git branch --merged master | grep -v 'master$' | xargs  git branch -d
     pushup = !git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)
     sync = !git upstream && git pushup
     pullbase = !~/dev/dotfiles/git/pullbase.py --remote-branch 
     up = !git pull --rebase --prune $@ && git submodule update --init --recursive
     upstream = !git pull upstream $(git rev-parse --abbrev-ref HEAD) --rebase --prune $@ && git submodule update --init --recursive
     save = !git add -A && git commit -m 'SAVEPOINT'
-    wip = commit -am "WIP" 
+    wip = !git add -A && git commit -m 'WIP'
     undo = reset HEAD~1 --mixed
     wipe = !git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard
     delbr = branch -d
