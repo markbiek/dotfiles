@@ -1,5 +1,7 @@
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+ZSH_DISABLE_COMPFIX=true
+
 ############################################################################
 # Plugins
 autoload -U zmv
@@ -68,13 +70,14 @@ alias tn="tmux new -s"
 alias areverse="adb reverse tcp:8081 tcp:8081"
 alias alogcat="adb logcat *:S ReactNative:V ReactNativeJS:V"
 
-alias spva='ssh viaadmin@216.135.72.232'
-alias sw1='ssh -L 3308:localhost:3306 viaadmin@web1.viastudio.com'
-alias sw2='ssh -L 3308:localhost:3306 viaadmin@web2.viastudio.com'
-alias scj='ssh -i ~/.ssh/vt.rsa viaadmin@jenkins2.viatools.com'
-alias svt='scj'
-alias sb='ssh bang'
-alias sjt='ssh -i ~/.ssh/mbb.rsa -L 5000:127.0.0.1:5000 -L 5984:127.0.0.1:5984 -L 3000:localhost:3000 -L 3001:localhost:3001 -L 8082:localhost:8082 -L 8080:localhost:8080 -L 3307:localhost:3306 mark@janustech.net'
+alias ssh-pva='ssh viaadmin@216.135.72.232'
+alias ssh-w1='ssh -L 3308:localhost:3306 viaadmin@web1.viastudio.com'
+alias ssh-w2='ssh -L 3308:localhost:3306 viaadmin@web2.viastudio.com'
+alias ssh-cj='ssh -i ~/.ssh/vt.rsa viaadmin@jenkins2.viatools.com'
+alias ssh-vt='ssh-cj'
+alias ssh-b='ssh bang'
+alias ssh-jt='ssh -i ~/.ssh/mbb.rsa -L 5000:127.0.0.1:5000 -L 5984:127.0.0.1:5984 -L 3000:localhost:3000 -L 3001:localhost:3001 -L 8082:localhost:8082 -L 8080:localhost:8080 -L 3307:localhost:3306 mark@janustech.net'
+alias ssh-icd='ssh -i ~/.ssh/iovita-cdb.pem ubuntu@api.content-database.mmj.org'
 ################################################################################
 
 ############################################################################
@@ -88,4 +91,6 @@ bindkey '^R' history-incremental-pattern-search-backward
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 ############################################################################
-export PATH="/usr/local/opt/php@7.1/bin:$PATH"
+#export PATH="/usr/local/opt/php@7.1/bin:$PATH"
+#export PATH="/usr/local/opt/php@7.0/bin:$PATH"
+export PATH="$PATH:/Users/mark/.vgc"

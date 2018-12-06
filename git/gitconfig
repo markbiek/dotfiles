@@ -25,6 +25,7 @@
     excludesfile = /Users/mark/.gitignore
     fileMode = false
     text=auto
+    hooksPath = /Users/mark/dev/via-git-hooks
 
 [alias]
     alias = config --get-regexp alias
