@@ -1,32 +1,31 @@
-set gfn=Consolas:h11
 scriptencoding utf-8
 set encoding=utf-8
 set fileformat=unix
 set fileformats=unix,dos
 set nocompatible
 set showmode
-
-" fzf fuzzy search
-set rtp+=/usr/local/opt/fzf
+set background="dark"
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
-" Plugin 'mxw/vim-jsx'
-" Plugin 'pangloss/vim-javascript'
 Plugin 'scrooloose/nerdTree'
+Plugin 'sheerun/vim-polyglot'
+Plugin 'dikiaap/minimalist'
 Plugin 'qpkorr/vim-bufkill'
 Plugin 'tpope/vim-surround'
-Bundle 'joonty/vim-phpqa.git'
-Bundle 'https://baldibiek@bitbucket.org/kisom/eink.vim.git'
+Plugin 'ap/vim-css-color'
+Bundle 'craigemery/vim-autotag'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
 
 syntax enable
-colo eink
+" colo eink
+set t_Co=256
+colorscheme minimalist
 filetype indent on
 " set autoindent width to 4 spaces (see
 " " " http://www.vim.org/tips/tip.php?tip_id=83)
@@ -37,6 +36,7 @@ set relativenumber
 
 set ignorecase
 set smartcase
+set nowritebackup
 
 set laststatus=2
 set statusline=
@@ -52,20 +52,10 @@ let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
 if version >= 700
   hi StatusLine term=bold,reverse ctermbg=Green gui=undercurl guisp=Green
-  hi StatusLineNC term=reverse ctermbg=White gui=undercurl guisp=White
+  hi StatusLineNC term=reverse ctermbg=Black gui=undercurl guisp=White
   au InsertEnter * hi StatusLine term=bold,reverse ctermbg=Green gui=undercurl guisp=Green
 endif
 
-<<<<<<< Updated upstream
-=======
-"vim-phpqa
-let g:phpqa_codesniffer_args = "-ns --standard=Via"
-let g:phpqa_codesniffer_cmd="phpcs"
-let g:phpqa_codesniffer_autorun = 0
-let g:phpqa_messdetector_autorun = 0
-let g:phpqa_codecoverage_autorun = 0
-
->>>>>>> Stashed changes
 "nnoremap <up> <nop>
 "nnoremap <down> <nop>
 "nnoremap <left> <nop>

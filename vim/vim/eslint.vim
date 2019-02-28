@@ -1,31 +1,32 @@
-" File:         phpcs.vim
+" File:         eslint.vim
 " Author:       Mark Biek (borrowed heavily from Joe Stelmach (joe@zenbe.com))
 " Version:      0.1
-" Description:  Run phpcs on the current file each time it's saved
+" Description:  Run eslint on the current file each time it's saved
 " Last Modified: Dec 01, 2015
 
-if !exists("js_command")
-    let js_command = 'jshint'
+if !exists("eslint_command")
+    let eslint_command = 'eslint'
 endif
 
-if !exists("js_command_options")
-    let js_command_options = ''
+if !exists("eslint_command_options")
+    let eslint_command_options = ''
 endif
 
-if !exists("js_highlight_color")
-    let js_highlight_color = 'DarkMagenta'
+if !exists("eslint_highlight_color")
+    let eslint_highlight_color = 'DarkMagenta'
 endif
 
 " set up auto commands
-autocmd BufWritePost,FileWritePost *.js call JS_Hint()
+autocmd BufWritePost,FileWritePost *.js call ESLint_Lint()
+autocmd BufWritePost,FileWritePost *.jsx call ESLint_Lint()
 autocmd BufWinLeave * call s:MaybeClearCursorLineColor()
 
 " Runs the current file through javascript lint and 
 " opens a quickfix window with any warnings
-function JS_Hint() 
+function ESLint_Lint() 
     " run syntax on the current file
     let current_file = shellescape(expand('%:p'))
-    let cmd_output = system(g:js_command . ' ' . g:js_command_options . ' ' . current_file)
+    let cmd_output = system(g:eslint_command . ' ' . g:eslint_command_options . ' ' . current_file)
 
     " if some warnings were found, we process them
     if strlen(cmd_output) > 0 && stridx(cmd_output, "No syntax errors detected") < 0
@@ -66,7 +67,7 @@ endfunction
 " sets the cursor line highlight color to the error highlight color 
 function s:SetCursorLineColor() 
     " check for disabled cursor line
-    if(!exists("g:js_highlight_color") || strlen(g:js_highlight_color) == 0) 
+    if(!exists("g:eslint_highlight_color") || strlen(g:eslint_highlight_color) == 0) 
         return 
     endif
 
@@ -87,7 +88,7 @@ function s:SetCursorLineColor()
         unlet s:previous_cursor_guibg
     endif
 
-    execute "highlight CursorLine guibg=" . g:js_highlight_color
+    execute "highlight CursorLine guibg=" . g:eslint_highlight_color
 endfunction
 
 " Conditionally reverts the cursor line color based on the presence
