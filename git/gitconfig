@@ -21,11 +21,10 @@
 
 [core]
     editor = vim
-    pager = less -r
     excludesfile = /Users/mark/.gitignore
     fileMode = false
     text=auto
-    hooksPath = /Users/mark/dev/via-git-hooks
+    pager = less -+F -+X
 
 [alias]
     alias = config --get-regexp alias
