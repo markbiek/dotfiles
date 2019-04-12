@@ -19,7 +19,6 @@ Plugin 'qpkorr/vim-bufkill'
 Plugin 'tpope/vim-surround'
 Plugin 'ap/vim-css-color'
 Bundle 'craigemery/vim-autotag'
-Bundle 'https://baldibiek@bitbucket.org/kisom/eink.vim.git'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
