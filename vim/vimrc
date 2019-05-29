@@ -56,14 +56,33 @@ if version >= 700
   au InsertEnter * hi StatusLine term=bold,reverse ctermbg=Green gui=undercurl guisp=Green
 endif
 
-"nnoremap <up> <nop>
-"nnoremap <down> <nop>
-"nnoremap <left> <nop>
-"nnoremap <right> <nop>
-"inoremap <up> <nop>
-"inoremap <down> <nop>
-"inoremap <left> <nop>
-"inoremap <right> <nop>
+autocmd FileType .scss setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
+" Remap the leader to <Space>
+let mapleader="\<Space>"
+
+" Save all buffers
+nnoremap <leader>w :wa<cr>
+
+" autoclose tags
+inoremap ( ()<Left>
+inoremap { {}<Left>
+inoremap [ []<Left>
+inoremap " ""<Left>
+inoremap <li> <li></li><ESC>F<
+inoremap <table> <table><cr></table><ESC>O<ESC>
+inoremap <thead> <thead><cr></thead><ESC>O<ESC>
+inoremap <tbody> <tbody><cr></tbody><ESC>O<ESC>
+inoremap <tr> <tr><cr></tr><ESC>O<ESC>
+inoremap <th> <th></th><ESC>F<
+inoremap <td> <td></td><ESC>F<
+inoremap <a <a href=""></a><ESC>F<
+
+"move lines around
+nnoremap <leader>k :m-2<cr>==
+nnoremap <leader>j :m+<cr>==
+xnoremap <leader>k :m-2<cr>gv=gv
+xnoremap <leader>j :m'>+<cr>gv=gv"
 
 map <C-n> :NERDTreeToggle<CR>
 
@@ -80,10 +99,23 @@ vmap    <F12>   <ESC>:nohlsearch<CR>gv
 "Split window mappings
 map <Leader><Leader> <ESC>:vsplit<CR>:wincmd l<cr>
 map <Leader>/   <ESC>:split<CR>:wincmd j<CR>
-nmap <silent> <A-Up> :wincmd k<CR>
-nmap <silent> <A-Down> :wincmd j<CR>
-nmap <silent> <A-Left> :wincmd h<CR>
-nmap <silent> <A-Right> :wincmd l<CR>
+nnoremap <silent> <C-h> :call WinMove('h')<cr>
+nnoremap <silent> <C-j> :call WinMove('j')<cr>
+nnoremap <silent> <C-k> :call WinMove('k')<cr>
+nnoremap <silent> <C-l> :call WinMove('l')<cr>))))
+
+function! WinMove(key)
+  let t:curwin = winnr()
+  exec "wincmd ".a:key
+  if (t:curwin == winnr())
+    if (match(a:key,'[jk]'))
+      wincmd v
+    else
+      wincmd s
+    endif
+    exec "wincmd ".a:key
+  endif
+endfunction
 
 "Buffer mappings
 map <F6> :buffers<CR>
@@ -104,26 +136,8 @@ map <F3> :!ls<CR>
 map <F4> :!pwd<CR>
 map <F5> :so $MYVIMRC<CR>
 
-"HTML replacement mappings
-map <Leader>' xi&rsquo;<esc>
-map <Leader>l' xi&lsquo;<esc>
-map <Leader>" xi&rdquo;<esc>
-map <Leader>l" xi&ldquo;<esc>
-map <Leader>b xi&bull;<Esc>
-map <Leader>R xi&reg;<Esc>
-map <Leader>C xi&copy;<Esc>
-map <Leader>T xi&trade;<Esc>
-map <Leader>& xi&amp;<Esc>
-map <Leader>L xi&lt;<Esc>
-map <Leader>G xi&gt;<Esc>
-map <Leader><SPACE> xi&nbsp;<Esc>
-map <Leader>- xi&ndash;<Esc>
-map <Leader>_ xi&mdash;<Esc>
-map <Leader>< xi&lt;<Esc>
-map <Leader>> xi&gt;<Esc>
-map <Leader><ENTER> $a<br /><Esc>j
-
 map <Leader>wli ^i<li><Esc>$a</li><Esc>j
+
 map <Leader>wa ^i<a href=""><Esc>$a</a><Esc>j
 map <Leader>wwa bi<a href=""><Esc>ea</a><Esc>
 map <Leader>wp ^i<p><Esc>$a</p><Esc>j
