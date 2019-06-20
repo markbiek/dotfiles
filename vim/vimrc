@@ -4,7 +4,6 @@ set fileformat=unix
 set fileformats=unix,dos
 set nocompatible
 set showmode
-set background="dark"
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -23,9 +22,8 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 
 syntax enable
-" colo eink
 set t_Co=256
-colorscheme minimalist
+" colorscheme minimalist
 filetype indent on
 " set autoindent width to 4 spaces (see
 " " " http://www.vim.org/tips/tip.php?tip_id=83)
@@ -36,7 +34,8 @@ set relativenumber
 
 set ignorecase
 set smartcase
-set nowritebackup
+"set nowritebackup
+set backupcopy=yes
 
 set laststatus=2
 set statusline=
@@ -52,7 +51,7 @@ let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
 if version >= 700
   hi StatusLine term=bold,reverse ctermbg=Green gui=undercurl guisp=Green
-  hi StatusLineNC term=reverse ctermbg=Black gui=undercurl guisp=White
+  hi StatusLineNC term=reverse ctermbg=White gui=undercurl guisp=Black
   au InsertEnter * hi StatusLine term=bold,reverse ctermbg=Green gui=undercurl guisp=Green
 endif
 
@@ -69,6 +68,16 @@ inoremap ( ()<Left>
 inoremap { {}<Left>
 inoremap [ []<Left>
 inoremap " ""<Left>
+inoremap ' ''<Left>
+inoremap ` ``<Left>
+inoremap <<< <<<EOT<cr>EOT;<ESC>O<ESC>
+inoremap '<pre echo '<pre>' . print_r(, true) . '</pre>';<ESC>F,<Ins>
+inoremap <p> <p></p><ESC>F<
+inoremap <code> <code></code><ESC>F<
+inoremap <section> <section></section><ESC>F<
+inoremap <aside> <aside></aside><ESC>F<
+inoremap <header> <header></header><ESC>F<
+inoremap <ul> <ul><cr></ul><ESC>O<ESC>
 inoremap <li> <li></li><ESC>F<
 inoremap <table> <table><cr></table><ESC>O<ESC>
 inoremap <thead> <thead><cr></thead><ESC>O<ESC>
