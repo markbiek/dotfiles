@@ -86,6 +86,7 @@ inoremap <tr> <tr><cr></tr><ESC>O<ESC>
 inoremap <th> <th></th><ESC>F<
 inoremap <td> <td></td><ESC>F<
 inoremap <a <a href=""></a><ESC>F<
+inoremap _blank target="_blank"<ESC>
 
 "move lines around
 nnoremap <leader>k :m-2<cr>==
