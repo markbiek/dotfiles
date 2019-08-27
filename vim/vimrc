@@ -64,12 +64,12 @@ let mapleader="\<Space>"
 nnoremap <leader>w :wa<cr>
 
 " autoclose tags
-inoremap ( ()<Left>
-inoremap { {}<Left>
-inoremap [ []<Left>
-inoremap " ""<Left>
-inoremap ' ''<Left>
-inoremap ` ``<Left>
+"inoremap ( ()<Left>
+"inoremap { {}<Left>
+"inoremap [ []<Left>
+"inoremap " ""<Left>
+"inoremap ' ''<Left>
+"inoremap ` ``<Left>
 inoremap <<< <<<EOT<cr>EOT;<ESC>O<ESC>
 inoremap '<pre echo '<pre>' . print_r(, true) . '</pre>';<ESC>F,<Ins>
 inoremap <p> <p></p><ESC>F<
