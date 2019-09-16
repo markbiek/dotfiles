@@ -16,6 +16,7 @@ Plugin 'dikiaap/minimalist'
 Plugin 'qpkorr/vim-bufkill'
 Plugin 'tpope/vim-surround'
 Plugin 'ap/vim-css-color'
+Plugin 'dense-analysis/ale'
 Bundle 'craigemery/vim-autotag'
 
 call vundle#end()            " required
@@ -48,6 +49,11 @@ set statusline+=\ [%{&fenc!=''?&fenc:&enc}]
 set statusline+=\ %n\ 
 
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+
+" ALE settings
+let g:ale_linters = {'javascript': ['prettier', 'eslint']}
+let g:ale_fixers = {'javascript': ['prettier', 'eslint']}
+let g:ale_fix_on_save = 1
 
 if version >= 700
   hi StatusLine term=bold,reverse ctermbg=Green gui=undercurl guisp=Green
