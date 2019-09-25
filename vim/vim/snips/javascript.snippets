@@ -139,6 +139,16 @@ snippet ird
 import ReactDom from 'react-dom';
 endsnippet
 
+snippet comp "functional component"
+const ${1:Component} = ({${2}}) => {
+    return (
+	${0:${VISUAL}}
+    );
+};
+
+export default $1;
+endsnippet
+
 snippet pt
 const ${1}.propTypes = {
     ${2}: React.PropTypes.${3:type},
