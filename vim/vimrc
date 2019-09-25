@@ -11,7 +11,6 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdTree'
-Plugin 'sheerun/vim-polyglot'
 Plugin 'dikiaap/minimalist'
 Plugin 'qpkorr/vim-bufkill'
 Plugin 'tpope/vim-surround'
@@ -52,6 +51,7 @@ set statusline+=\ %n\
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
 " ALE settings
+let g:ale_linters_explicit = 1
 let g:ale_linters = {'javascript': ['prettier', 'eslint']}
 let g:ale_fixers = {'javascript': ['prettier', 'eslint']}
 let g:ale_fix_on_save = 1
