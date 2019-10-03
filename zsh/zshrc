@@ -85,6 +85,7 @@ alias ssh-vt='ssh-cj'
 alias ssh-b='ssh bang'
 alias ssh-jt='ssh -L 5000:127.0.0.1:5000 -L 5984:127.0.0.1:5984 -L 3000:localhost:3000 -L 3001:localhost:3001 -L 8082:localhost:8082 -L 8080:localhost:8080 -L 3307:localhost:3306 mark@janustech.net'
 alias ssh-icd='ssh -i ~/.ssh/iovita-cdb.pem ubuntu@api.content-database.mmj.org'
+alias ssh-plex='ssh mark@192.168.1.90'
 ################################################################################
 
 ############################################################################
