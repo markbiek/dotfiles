@@ -17,6 +17,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'ap/vim-css-color'
 Plugin 'dense-analysis/ale'
 Plugin 'SirVer/ultisnips'
+Plugin 'ianks/vim-tsx'
 Bundle 'craigemery/vim-autotag'
 
 call vundle#end()            " required
@@ -67,8 +68,9 @@ let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
 " ALE settings
 let g:ale_linters_explicit = 1
-let g:ale_linters = {'javascript': ['prettier', 'eslint'], 'php': ['phpcs']}
-let g:ale_fixers = {'javascript': ['prettier', 'eslint']}
+let g:ale_linter_aliases = {'typescriptreact': 'typescript'}
+let g:ale_linters = {'javascript': ['prettier', 'eslint'], 'typescript': ['prettier', 'tsserver', 'tslint'], 'php': ['phpcs']}
+let g:ale_fixers = {'javascript': ['prettier', 'eslint'], 'typescript': ['prettier', 'eslint'],  'css': ['prettier'], 'scss': ['prettier'], 'sass': ['prettier'], 'less': ['prettier']}
 let g:ale_fix_on_save = 1
 
 " ultisnips settings
@@ -79,9 +81,6 @@ let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
-
-autocmd FileType .scss setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " Turn on spell check for certain filetypes automatically
 " autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en_us
