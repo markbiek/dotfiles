@@ -69,8 +69,8 @@ let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 " ALE settings
 let g:ale_linters_explicit = 1
 let g:ale_linter_aliases = {'typescriptreact': 'typescript'}
-let g:ale_linters = {'javascript': ['prettier', 'eslint'], 'typescript': ['prettier', 'tsserver', 'tslint'], 'php': ['phpcs']}
-let g:ale_fixers = {'javascript': ['prettier', 'eslint'], 'typescript': ['prettier', 'eslint'],  'css': ['prettier'], 'scss': ['prettier'], 'sass': ['prettier'], 'less': ['prettier']}
+let g:ale_linters = {'javascript': ['prettier', 'eslint'], 'typescript': ['prettier', 'tsserver', 'tslint'], 'php': ['phpcs', 'php']}
+let g:ale_fixers = {'json': ['prettier'], 'javascript': ['prettier', 'eslint'], 'typescript': ['prettier', 'eslint'],  'css': ['prettier'], 'scss': ['prettier'], 'sass': ['prettier'], 'less': ['prettier']}
 let g:ale_fix_on_save = 1
 
 " ultisnips settings
