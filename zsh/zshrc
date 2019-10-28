@@ -75,8 +75,8 @@ pr() {
     slack chat send -ch "$1" --text "`hub-pr`"
 }
 
-alias ssh-pva='ssh viaadmin@216.135.72.233'
-alias ssh-pva-old='ssh viaadmin@216.135.72.232'
+alias ssh-pva-new='ssh viaadmin@216.135.72.233'
+alias ssh-pva='ssh viaadmin@216.135.72.232'
 alias ssh-w1='ssh -L 3308:localhost:3306 viaadmin@web1.viastudio.com'
 alias ssh-w2='ssh -L 3308:localhost:3306 viaadmin@web2.viastudio.com'
 alias ssh-w3='ssh -L 3308:localhost:3306 viaadmin@web3.viastudio.com'
