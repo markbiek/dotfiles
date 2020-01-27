@@ -12,7 +12,7 @@ autoload zcalc
 ############################################################################
 # oh-my-zsh
 export DISABLE_AUTO_UPDATE="true"
-export ZSH=/Users/mark/.oh-my-zsh
+export ZSH=/home/mark/.oh-my-zsh
 ZSH_THEME="ys"
 
 plugins=(
@@ -104,7 +104,7 @@ bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 ############################################################################
 export LESS="-F -X $LESS"
-export PATH="$PATH:/Users/mark/.vgc"
+export PATH="$PATH:/home/mark/.vgc"
 export PATH="/usr/local/opt/node@10/bin:$PATH"
 
 source /Users/mark/Library/Preferences/org.dystroy.broot/launcher/bash/br
