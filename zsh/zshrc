@@ -104,7 +104,7 @@ bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 ############################################################################
 export LESS="-F -X $LESS"
-export PATH="$PATH:/Users/mark/.vgc"
+export PATH="$PATH:/Users/mark/.vgc:/Users/mark/bin"
 export PATH="/usr/local/opt/node@10/bin:$PATH"
 
 source /Users/mark/Library/Preferences/org.dystroy.broot/launcher/bash/br

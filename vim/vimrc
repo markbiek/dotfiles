@@ -12,7 +12,6 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'beikome/cosme.vim'
-Plugin 'scrooloose/nerdTree'
 Plugin 'qpkorr/vim-bufkill'
 Plugin 'tpope/vim-surround'
 Plugin 'ap/vim-css-color'
@@ -100,7 +99,13 @@ nnoremap <leader>j :m+<cr>==
 xnoremap <leader>k :m-2<cr>gv=gv
 xnoremap <leader>j :m'>+<cr>gv=gv"
 
-map <C-n> :NERDTreeToggle<CR>
+" netrw
+map <C-n> :Vexplore<CR>
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 4
+let g:netrw_altv = 1
+let g:netrw_winsize = 25
 
 nnoremap <A-A> <C-a>
 nnoremap <A-x> <C-x>
@@ -144,7 +149,7 @@ map     <Leader>8 <ESC>:b8<CR>
 map     <Leader>9 <ESC>:b9<CR>
 
 "Other F keys
-nnoremap <F2> "=strftime("%Y-%m-%d %H:%M:%S")<CR>P<Esc>0i# <Esc>o
+nnoremap <F2> O<Esc>"=strftime("%Y-%m-%d %H:%M:%S")<CR>P<Esc>0i# <Esc>o
 inoremap <F2> <C-R>=strftime("%Y-%m-%d %H:%M:%S")<CR><Esc>0i# <Esc>o
 map <F3> :!ls<CR>
 map <F4> :!pwd<CR>
