@@ -10,8 +10,8 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'preservim/nerdtree'
 Plugin 'beikome/cosme.vim'
-Plugin 'scrooloose/nerdTree'
 Plugin 'qpkorr/vim-bufkill'
 Plugin 'tpope/vim-surround'
 Plugin 'ap/vim-css-color'
@@ -143,6 +143,8 @@ map     <Leader>8 <ESC>:b8<CR>
 map     <Leader>9 <ESC>:b9<CR>
 
 "Other F keys
+nnoremap <F2> O<Esc>"=strftime("%Y-%m-%d %H:%M:%S")<CR>P<Esc>0i# <Esc>o
+inoremap <F2> <C-R>=strftime("%Y-%m-%d %H:%M:%S")<CR><Esc>0i# <Esc>o
 map <F3> :!ls<CR>
 map <F4> :!pwd<CR>
 map <F5> :so $MYVIMRC<CR>
