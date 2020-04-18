@@ -1,0 +1,9 @@
+{
+  "configuration": {
+    "$mid": 1,
+    "external": "vscode-remote://ssh-remote%2Bjanustech.net/home/mark/dev/phpssg/phpssg.code-workspace",
+    "path": "/home/mark/dev/phpssg/phpssg.code-workspace",
+    "scheme": "vscode-remote",
+    "authority": "ssh-remote+janustech.net"
+  }
+}

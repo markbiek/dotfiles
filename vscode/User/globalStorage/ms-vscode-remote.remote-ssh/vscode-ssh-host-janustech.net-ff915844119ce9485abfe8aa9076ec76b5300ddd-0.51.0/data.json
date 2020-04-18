@@ -1,0 +1,13 @@
+{
+  "agentPort": 38049,
+  "osReleaseId": "ubuntu",
+  "arch": "x86_64",
+  "webUiAccessToken": "",
+  "sshAuthSock": "",
+  "tmpDir": "/run/user/1000",
+  "platform": "linux",
+  "pid": 34985,
+  "ipcHandlePath": "/var/folders/mg/9_cz40g15j9616tddj2jcz680000gn/T/vscode-ssh-askpass-b6ce306a4db3a4859403e442e1e641ed92610c80.sock",
+  "socksPort": 61164,
+  "startupTime": 1587214837410
+}
