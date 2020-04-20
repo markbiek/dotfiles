@@ -1,0 +1,31 @@
+// Place your key bindings in this file to overwrite the defaults
+[
+    // Move between terminals
+    {
+        "key": "shift+cmd+j",
+        "command": "workbench.action.terminal.focusNext"
+    },
+    {
+        "key": "shift+cmd+k",
+        "command": "workbench.action.terminal.focusPrevious"
+    },
+    // Kill terminal
+    {
+        "key": "shift+cmd+x",
+        "command": "workbench.action.terminal.kill"
+    },
+    // Toggle between terminal and editor focus
+    {
+        "key": "ctrl+`",
+        "command": "workbench.action.terminal.focus"
+    },
+    {
+        "key": "ctrl+`",
+        "command": "workbench.action.focusActiveEditorGroup",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "alt+cmd+m",
+        "command": "workbench.action.toggleMaximizedPanel"
+    }
+]
