@@ -89,7 +89,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " autocmd FileType gitcommit setlocal spell spelllang=en_us
 
 " Remap the leader to <Space>
-let mapleader="\<Space>"
+" let mapleader="\<Space>"
 
 " Save all buffers
 nnoremap <leader>w :wa<cr>
