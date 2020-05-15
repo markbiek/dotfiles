@@ -11,7 +11,7 @@
     },
     // Kill terminal
     {
-        "key": "shift+cmd+x",
+        "key": "shift+ctrl+x",
         "command": "workbench.action.terminal.kill"
     },
     // Toggle between terminal and editor focus
@@ -27,5 +27,13 @@
     {
         "key": "alt+cmd+m",
         "command": "workbench.action.toggleMaximizedPanel"
+    },
+    {
+        "key": "ctrl+shift+cmd+s",
+        "command": "workbench.action.saveWorkspaceAs"
+    },
+    {
+        "key": "ctrl+shift+cmd+o",
+        "command": "workbench.action.openWorkspace"
     }
 ]
