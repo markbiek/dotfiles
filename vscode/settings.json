@@ -24,4 +24,5 @@
     "explorer.confirmDelete": false,
     "editor.renderWhitespace": "none",
     "explorer.confirmDragAndDrop": false,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
 }
