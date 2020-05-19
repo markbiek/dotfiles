@@ -15,7 +15,10 @@
     "terminal.integrated.fontFamily": "'Cascadia Code', Menlo, Monaco, 'Courier New', monospace",
     "terminal.integrated.fontSize": 16,
     "[javascript]": {
-        "editor.defaultFormatter": "vscode.typescript-language-features"
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[php]": { 
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "php.validate.executablePath": "/usr/local/bin/php",
     "php.executablePath": "/usr/local/bin/php",
@@ -24,5 +27,5 @@
     "explorer.confirmDelete": false,
     "editor.renderWhitespace": "none",
     "explorer.confirmDragAndDrop": false,
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
 }
