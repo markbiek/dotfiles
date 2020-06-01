@@ -67,17 +67,14 @@ setopt HIST_BEEP                 # Beep when accessing nonexistent history.
 ################################################################################
 # Aliases
 alias ds='sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder;'
-alias vh='pushd ~/dev/vagrant && vagrant hostmanager && vagrant provision && popd'
-alias dstart='pushd ~/dev/docker/via_docker && npm start && popd'
-alias dstop='pushd ~/dev/docker/via_docker && npm stop && popd'
-alias dsh='pushd ~/dev/docker/via_docker && npm run httpd-bash && popd'
+#alias vh='pushd ~/dev/vagrant && vagrant hostmanager && vagrant provision && popd'
+#alias dstart='pushd ~/dev/docker/via_docker && npm start && popd'
+#alias dstop='pushd ~/dev/docker/via_docker && npm stop && popd'
+#alias dsh='pushd ~/dev/docker/via_docker && npm run httpd-bash && popd'
 alias tls="tmux ls"
 alias tt="tmux a -t"
 alias tn="tmux new -s"
 alias th="~/bin/th"
-
-alias areverse="adb reverse tcp:8081 tcp:8081"
-alias alogcat="adb logcat *:S ReactNative:V ReactNativeJS:V"
 
 alias wpeh="~/dev/wpe/artisan"
 
