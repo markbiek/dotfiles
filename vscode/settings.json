@@ -1,32 +1,44 @@
 // Place your settings in this file to overwrite the default settings
 {
-    "workbench.colorTheme": "Pink Cat Boo",
-    "editor.fontSize": 16,
-    "editor.fontFamily": "'Cascadia Code', Menlo, Monaco, 'Courier New', monospace",
-    "files.exclude": {
-        "**/node_modules": true,
-        "**/vendor": true
-    },
-    "editor.minimap.enabled": false,
-    "editor.lineNumbers": "relative",
-    "editor.formatOnPaste": true,
-    "editor.formatOnSave": true,
-    "editor.formatOnType": true,
-    "terminal.integrated.fontFamily": "'Cascadia Code', Menlo, Monaco, 'Courier New', monospace",
-    "terminal.integrated.fontSize": 16,
-    "[javascript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[php]": { 
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "php.validate.executablePath": "/usr/local/bin/php",
-    "php.executablePath": "/usr/local/bin/php",
-    "artisan.php.location": "/usr/local/bin/php",
-    "editor.wordWrap": "on",
-    "explorer.confirmDelete": false,
-    "editor.renderWhitespace": "none",
-    "explorer.confirmDragAndDrop": false,
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "prettier.useTabs": true
+	"workbench.colorTheme": "Pink Cat Boo",
+	"editor.fontSize": 16,
+	"editor.fontFamily": "'Cascadia Code', Menlo, Monaco, 'Courier New', monospace",
+	"files.exclude": {
+		"**/node_modules": true,
+		"**/vendor": true
+	},
+	"editor.minimap.enabled": false,
+	"editor.lineNumbers": "relative",
+	"editor.formatOnPaste": true,
+	"editor.formatOnSave": true,
+	"editor.formatOnType": true,
+	"terminal.integrated.fontFamily": "'Cascadia Code', Menlo, Monaco, 'Courier New', monospace",
+	"terminal.integrated.fontSize": 16,
+	"[javascript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[php]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"php.validate.executablePath": "/usr/local/bin/php",
+	"php.executablePath": "/usr/local/bin/php",
+	"artisan.php.location": "/usr/local/bin/php",
+	"editor.wordWrap": "on",
+	"explorer.confirmDelete": false,
+	"editor.renderWhitespace": "none",
+	"explorer.confirmDragAndDrop": false,
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"prettier.useTabs": true,
+	"editor.folding": false,
+	"vim.leader": "<space>",
+	"vim.normalModeKeyBindingsNonRecursive": [
+		{
+			"before": ["j"],
+			"after": ["g", "j"]
+		},
+		{
+			"before": ["k"],
+			"after": ["g", "k"]
+		}
+	]
 }
