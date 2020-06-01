@@ -12,7 +12,11 @@ autoload zcalc
 ############################################################################
 # oh-my-zsh
 export DISABLE_AUTO_UPDATE="true"
-export ZSH=/Users/mark/.oh-my-zsh
+if [[ $OSTYPE == darwin* ]]; then
+	export ZSH=/Users/mark/.oh-my-zsh
+else
+	export ZSH=/home/mark/.oh-my-zsh
+fi
 ZSH_THEME="ys"
 
 plugins=(
