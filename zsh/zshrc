@@ -13,6 +13,11 @@ autoload zcalc
 # oh-my-zsh
 export DISABLE_AUTO_UPDATE="true"
 export ZSH=/home/mark/.oh-my-zsh
+if [[ $OSTYPE == darwin* ]]; then
+	export ZSH=/Users/mark/.oh-my-zsh
+else
+	export ZSH=/home/mark/.oh-my-zsh
+fi
 ZSH_THEME="ys"
 
 plugins=(
@@ -63,27 +68,31 @@ setopt HIST_BEEP                 # Beep when accessing nonexistent history.
 ################################################################################
 # Aliases
 alias ds='sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder;'
-alias vh='pushd ~/dev/vagrant && vagrant hostmanager && vagrant provision && popd'
-alias dstart='pushd ~/dev/docker/via_docker && npm start && popd'
-alias dstop='pushd ~/dev/docker/via_docker && npm stop && popd'
-alias dsh='pushd ~/dev/docker/via_docker && npm run httpd-bash && popd'
+alias wpeh="~/dev/wpe/artisan"
+
+# nodejs
+alias n10="n 10.20.1"
+alias n12="n 12.18.2"
+alias n14="n 14.5.0"
+
+# file types
+alias -s md=code
+alias -s json=code
+alias -s {css,scss,ts,js,jsx,html}=code
+
+# tmux
 alias tls="tmux ls"
 alias tt="tmux a -t"
 alias tn="tmux new -s"
 alias th="~/bin/th"
 
-alias areverse="adb reverse tcp:8081 tcp:8081"
-alias alogcat="adb logcat *:S ReactNative:V ReactNativeJS:V"
 
-pr() {
-    slack chat send -ch "$1" --text "`hub-pr`"
-}
-
+# ssh
 alias ssh-pva-new='ssh viaadmin@216.135.72.233'
 alias ssh-pva='ssh viaadmin@216.135.72.232'
 alias ssh-w1='ssh -L 3308:localhost:3306 viaadmin@web1.viastudio.com'
-alias ssh-w2='ssh -L 3308:localhost:3306 viaadmin@web2.viastudio.com'
 alias ssh-w3='ssh -L 3308:localhost:3306 viaadmin@web3.viastudio.com'
+alias ssh-p='ssh viaadmin@prod.viastudio.com'
 alias ssh-cj='ssh -i ~/.ssh/vt.rsa viaadmin@jenkins2.viatools.com'
 alias ssh-vt='ssh-cj'
 alias ssh-b='ssh bang'
@@ -103,8 +112,18 @@ bindkey '^R' history-incremental-pattern-search-backward
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 ############################################################################
+export EDITOR=/usr/local/bin/vim
+export VISUAL=/usr/local/bin/vim
+export WPENGINE_USER_ID="6682c98e-d9cb-4983-8330-747da5067136"
+export WPENGINE_PASSWORD="hkan8S/XkI800UKdwJRSQw=="
+
 export LESS="-F -X $LESS"
 export PATH="$PATH:/home/mark/.vgc"
 export PATH="/usr/local/opt/node@10/bin:$PATH"
+export PATH="$PATH:/Users/mark/.vgc:/Users/mark/bin:~/.composer/vendor/bin"
 
 source /Users/mark/Library/Preferences/org.dystroy.broot/launcher/bash/br
+export PATH="/usr/local/opt/php@7.3/bin:$PATH"
+export PATH="/usr/local/opt/php@7.3/sbin:$PATH"
+export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+

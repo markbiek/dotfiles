@@ -32,8 +32,8 @@ hi Normal ctermbg=234
 filetype indent on
 " set autoindent width to 4 spaces (see
 " " " http://www.vim.org/tips/tip.php?tip_id=83)
-set et
-set sw=4
+" set et
+" set sw=4
 set smarttab
 set relativenumber
 
