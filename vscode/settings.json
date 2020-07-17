@@ -40,5 +40,6 @@
 			"before": ["k"],
 			"after": ["g", "k"]
 		}
-	]
+	],
+	"typescript.updateImportsOnFileMove.enabled": "always"
 }
