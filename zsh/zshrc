@@ -67,21 +67,26 @@ setopt HIST_BEEP                 # Beep when accessing nonexistent history.
 ################################################################################
 # Aliases
 alias ds='sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder;'
-#alias vh='pushd ~/dev/vagrant && vagrant hostmanager && vagrant provision && popd'
-#alias dstart='pushd ~/dev/docker/via_docker && npm start && popd'
-#alias dstop='pushd ~/dev/docker/via_docker && npm stop && popd'
-#alias dsh='pushd ~/dev/docker/via_docker && npm run httpd-bash && popd'
+alias wpeh="~/dev/wpe/artisan"
+
+# nodejs
+alias n10="n 10.20.1"
+alias n12="n 12.18.2"
+alias n14="n 14.5.0"
+
+# file types
+alias -s md=code
+alias -s json=code
+alias -s {css,scss,ts,js,jsx,html}=code
+
+# tmux
 alias tls="tmux ls"
 alias tt="tmux a -t"
 alias tn="tmux new -s"
 alias th="~/bin/th"
 
-alias wpeh="~/dev/wpe/artisan"
 
-pr() {
-    slack chat send -ch "$1" --text "`hub-pr`"
-}
-
+# ssh
 alias ssh-pva-new='ssh viaadmin@216.135.72.233'
 alias ssh-pva='ssh viaadmin@216.135.72.232'
 alias ssh-w1='ssh -L 3308:localhost:3306 viaadmin@web1.viastudio.com'
@@ -106,6 +111,8 @@ bindkey '^R' history-incremental-pattern-search-backward
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 ############################################################################
+export EDITOR=/usr/local/bin/vim
+export VISUAL=/usr/local/bin/vim
 export WPENGINE_USER_ID="6682c98e-d9cb-4983-8330-747da5067136"
 export WPENGINE_PASSWORD="hkan8S/XkI800UKdwJRSQw=="
 
