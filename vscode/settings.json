@@ -1,11 +1,39 @@
 // Place your settings in this file to overwrite the default settings
 {
-	"workbench.colorTheme": "Pink Cat Boo",
+	"workbench.colorTheme": "Visual Studio Dark",
 	"editor.fontSize": 16,
 	"editor.fontFamily": "'Cascadia Code', Menlo, Monaco, 'Courier New', monospace",
 	"files.exclude": {
 		"**/node_modules": true,
-		"**/vendor": true
+		"**/vendor": true,
+		"**/plugins/akismet": true,
+		"**/plugins/classic-editor": true,
+		"**/plugins/cmb2": true,
+		"**/plugins/custom-content-width": true,
+		"**/plugins/donation-thermometer": true,
+		"**/plugins/duracelltomi-google-tag-manager": true,
+		"**/plugins/enhanced-media-library": true,
+		"**/plugins/genesis-*": true,
+		"**/plugins/google-*": true,
+		"**/plugins/gravityforms": true,
+		"**/plugins/hyperdb": true,
+		"**/plugins/jetpack": true,
+		"**/plugins/mailchimp*": true,
+		"**/plugins/mailgun": true,
+		"**/plugins/media-*": true,
+		"**/plugins/monster*": true,
+		"**/plugins/post-tags*": true,
+		"**/plugins/really-simple-*": true,
+		"**/plugins/redirection": true,
+		"**/plugins/shortcodes*": true,
+		"**/plugins/simple-*": true,
+		"**/plugins/tinymce*-*": true,
+		"**/plugins/user-role-editor": true,
+		"**/plugins/wordpress-seo*": true,
+		"**/plugins/wp*": true,
+		"**/plugins/wpe*": true,
+		"**/plugins/wpmu*": true,
+		"**/plugins/yoast*": true
 	},
 	"editor.minimap.enabled": false,
 	"editor.lineNumbers": "relative",
@@ -41,5 +69,7 @@
 			"after": ["g", "k"]
 		}
 	],
-	"typescript.updateImportsOnFileMove.enabled": "always"
+	"typescript.updateImportsOnFileMove.enabled": "always",
+	"javascript.updateImportsOnFileMove.enabled": "always",
+	"workbench.activityBar.visible": false
 }
