@@ -68,6 +68,8 @@ setopt HIST_BEEP                 # Beep when accessing nonexistent history.
 # Aliases
 alias ds='sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder;'
 alias wpeh="~/dev/wpe/artisan"
+alias python="python3"
+alias pip="pip3"
 
 # nodejs
 alias n10="n 10.20.1"
@@ -87,6 +89,10 @@ alias th="~/bin/th"
 
 
 # ssh
+swpe() {
+  ssh $1@$1.ssh.wpengine.net
+}
+
 alias ssh-pva-new='ssh viaadmin@216.135.72.233'
 alias ssh-pva='ssh viaadmin@216.135.72.232'
 alias ssh-w1='ssh -L 3308:localhost:3306 viaadmin@web1.viastudio.com'
@@ -98,6 +104,8 @@ alias ssh-b='ssh bang'
 alias ssh-jt='ssh -L 5000:127.0.0.1:5000 -L 5984:127.0.0.1:5984 -L 3000:localhost:3000 -L 3001:localhost:3001 -L 8082:localhost:8082 -L 8080:localhost:8080 -L 3307:localhost:3306 mark@janustech.net'
 alias ssh-icd='ssh -i ~/.ssh/iovita-cdb.pem ubuntu@api.content-database.mmj.org'
 alias ssh-plex='ssh mark@192.168.1.90'
+alias ssh-ware='ssh via@45.79.215.223'
+alias ssh-tt='ssh antelopelovefan@tilde.town'
 ################################################################################
 
 ############################################################################
@@ -118,9 +126,16 @@ export WPENGINE_PASSWORD="hkan8S/XkI800UKdwJRSQw=="
 
 export LESS="-F -X $LESS"
 export PATH="$PATH:/Users/mark/.vgc:/Users/mark/bin:~/.composer/vendor/bin"
+if [[ $OSTYPE == darwin* ]]; then
+	export ANDROID_HOME=$HOME/Library/Android/sdk
 
-source /Users/mark/Library/Preferences/org.dystroy.broot/launcher/bash/br
-export PATH="/usr/local/opt/php@7.3/bin:$PATH"
-export PATH="/usr/local/opt/php@7.3/sbin:$PATH"
-export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+	export PATH="/Users/mark/Library/Python/3.8/bin":$PATH
+	export PATH="/usr/local/opt/php@7.3/bin:$PATH"
+	export PATH="/usr/local/opt/php@7.3/sbin:$PATH"
+	export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 
+	export PATH=$PATH:$ANDROID_HOME/emulator
+	export PATH=$PATH:$ANDROID_HOME/tools
+	export PATH=$PATH:$ANDROID_HOME/tools/bin
+	export PATH=$PATH:$ANDROID_HOME/platform-tools
+fi
