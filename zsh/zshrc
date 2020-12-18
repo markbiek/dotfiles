@@ -68,8 +68,8 @@ setopt HIST_BEEP                 # Beep when accessing nonexistent history.
 # Aliases
 alias ds='sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder;'
 alias wpeh="~/dev/wpe/artisan"
-alias python="python3"
-alias pip="pip3"
+alias find="gfind"
+alias date="gdate"
 
 # nodejs
 alias n10="n 10.20.1"
@@ -126,4 +126,7 @@ if [[ $OSTYPE == darwin* ]]; then
 	export PATH=$PATH:$ANDROID_HOME/tools
 	export PATH=$PATH:$ANDROID_HOME/tools/bin
 	export PATH=$PATH:$ANDROID_HOME/platform-tools
+fi
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
 fi

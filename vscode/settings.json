@@ -71,5 +71,8 @@
 	],
 	"typescript.updateImportsOnFileMove.enabled": "always",
 	"javascript.updateImportsOnFileMove.enabled": "always",
-	"workbench.activityBar.visible": false
+	"workbench.activityBar.visible": false,
+	"git.ignoreLegacyWarning": true,
+	"extensions.ignoreRecommendations": true,
+	"php.suggest.basic": false
 }
