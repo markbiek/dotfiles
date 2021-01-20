@@ -68,8 +68,10 @@ setopt HIST_BEEP                 # Beep when accessing nonexistent history.
 # Aliases
 alias ds='sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder;'
 alias wpeh="~/dev/wpe/artisan"
-alias find="gfind"
 alias date="gdate"
+alias df="gdf"
+alias du="gdu"
+alias composer5.6="php5.6 /usr/local/bin/composer"
 
 # nodejs
 alias n10="n 10.20.1"
@@ -130,3 +132,6 @@ fi
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
+export PATH="/usr/local/opt/php@7.4/bin:$PATH"
+export PATH="/usr/local/opt/php@7.4/sbin:$PATH"
+export PATH="/Users/mark/.composer/vendor/bin:$PATH"
