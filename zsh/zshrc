@@ -86,6 +86,14 @@ alias tt="tmux a -t"
 alias tn="tmux new -s"
 alias th="~/bin/th"
 
+# php
+alias php7.1="/Applications/MAMP/bin/php/php7.1.33/bin/php"
+alias composer7.1="php7.1 `which composer`"
+alias php7.4="/Applications/MAMP/bin/php/php7.4.12/bin/php"
+alias composer7.4="php7.4 `which composer`"
+alias php8.0="/Applications/MAMP/bin/php/php8.0.0/bin/php"
+alias composer8.0="php8.0 `which composer`"
+
 
 # ssh
 swpe() {
