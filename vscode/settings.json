@@ -50,7 +50,7 @@
 	},
 	"php.executablePath": "/usr/local/bin/php",
 	"artisan.php.location": "/usr/local/bin/php",
-	"editor.wordWrap": "on",
+	"editor.wordWrap": "off",
 	"explorer.confirmDelete": false,
 	"explorer.autoReveal": false,
 	"editor.renderWhitespace": "none",
@@ -79,5 +79,65 @@
 		"statusBar.background": "#EF98E6",
 		"statusBar.foreground": "#16161d"
 	},
-	"php.validate.executablePath": "/usr/local/bin/php"
+	"php.validate.executablePath": "/usr/local/bin/php",
+	"peacock.affectActivityBar": false,
+	"peacock.showColorInStatusBar": false,
+	"peacock.favoriteColors": [
+		{
+			"name": "Angular Red",
+			"value": "#dd0531"
+		},
+		{
+			"name": "Azure Blue",
+			"value": "#007fff"
+		},
+		{
+			"name": "JavaScript Yellow",
+			"value": "#f9e64f"
+		},
+		{
+			"name": "Mandalorian Blue",
+			"value": "#1857a4"
+		},
+		{
+			"name": "Node Green",
+			"value": "#215732"
+		},
+		{
+			"name": "React Blue",
+			"value": "#61dafb"
+		},
+		{
+			"name": "Something Different",
+			"value": "#832561"
+		},
+		{
+			"name": "Svelte Orange",
+			"value": "#ff3d00"
+		},
+		{
+			"name": "Vue Green",
+			"value": "#42b883"
+		},
+		{
+			"name": "wareinc",
+			"value": "#007cc1"
+		},
+		{
+			"name": "boilerwarehouse",
+			"value": "#233140"
+		},
+		{
+			"name": "wax-shop",
+			"value": "#ffcc00"
+		},
+		{
+			"name": "wax-cms",
+			"value": "#86b300"
+		}
+	],
+	"editor.tabSize": 4,
+	"editor.cursorStyle": "line",
+	"editor.insertSpaces": false,
+	"editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-"
 }
