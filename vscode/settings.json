@@ -50,7 +50,7 @@
 	},
 	"php.executablePath": "/usr/local/bin/php",
 	"artisan.php.location": "/usr/local/bin/php",
-	"editor.wordWrap": "off",
+	"editor.wordWrap": "on",
 	"explorer.confirmDelete": false,
 	"explorer.autoReveal": false,
 	"editor.renderWhitespace": "none",
@@ -139,5 +139,6 @@
 	"editor.tabSize": 4,
 	"editor.cursorStyle": "line",
 	"editor.insertSpaces": false,
-	"editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-"
+	"editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
+	"tabnine.experimentalAutoImports": true
 }

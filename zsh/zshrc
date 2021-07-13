@@ -137,3 +137,7 @@ fi
 export PATH="/Users/mark/.composer/vendor/bin:$PATH"
 export PATH="/usr/local/Cellar/mysql@5.7/5.7.32/bin:$PATH"
 export PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
+export PATH="/usr/local/opt/ruby/bin:$PATH"
+
+export LDFLAGS="-L/usr/local/opt/ruby/lib"
+export CPPFLAGS="-I/usr/local/opt/ruby/include"
