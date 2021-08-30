@@ -70,11 +70,6 @@ alias date="gdate"
 alias df="gdf"
 alias du="gdu"
 
-# nodejs
-alias n10="n 10.20.1"
-alias n12="n 12.18.2"
-alias n14="n 14.5.0"
-
 # file types
 alias -s md=code
 alias -s json=code
@@ -94,13 +89,17 @@ alias composer7.4="php7.4 `which composer`"
 alias php8.0="/Applications/MAMP/bin/php/php8.0.0/bin/php"
 alias composer8.0="php8.0 `which composer`"
 
+alias nvmrc="node -v > .nvmrc"
+alias f10="fnm use 10"
+alias f12="fnm use 12"
+alias f14="fnm use 14"
+alias f16="fnm use 16"
 
 # ssh
 swpe() {
   ssh $1@$1.ssh.wpengine.net
 }
 
-source ~/dev/dotfiles/zsh/secret/zsh_ssh_alias
 ################################################################################
 
 ############################################################################
@@ -141,3 +140,6 @@ export PATH="/usr/local/opt/ruby/bin:$PATH"
 
 export LDFLAGS="-L/usr/local/opt/ruby/lib"
 export CPPFLAGS="-I/usr/local/opt/ruby/include"
+
+export PATH=~/.fnm:$PATH
+eval "`fnm env --use-on-cd`"
