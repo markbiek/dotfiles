@@ -116,6 +116,14 @@
 			"value": "#ff3d00"
 		},
 		{
+			"name": "Staging",
+			"value": "#ff6a00"
+		},
+		{
+			"name": "Production",
+			"value": "#ff0017"
+		},
+		{
 			"name": "Vue Green",
 			"value": "#42b883"
 		},
