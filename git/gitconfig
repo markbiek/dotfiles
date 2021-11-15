@@ -26,6 +26,18 @@
     text=auto
     pager = less -+F -+X
 
+[pull]
+	rebase = false
+
+[rebase]
+	autosquash = true
+
+[remote]
+	pushDefault = origin
+
+[push]
+	default = current
+
 [alias]
     alias = config --get-regexp alias
     nm = branch --no-merged     
@@ -44,10 +56,10 @@
     cleanuplocal = !git remote prune origin && git gc && git clean -df
     cleanupmaster = !git branch --merged master | grep -v 'master$' | xargs  git branch -d
     pushup = !git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)
-    sync = !git upstream && git pushup
+    sync = !git upstream --no-verify && git pushup --no-verify
     pullbase = !~/dev/dotfiles/git/pullbase.py --remote-branch 
     up = !git pull --rebase --prune $@ && git submodule update --init --recursive
-    upstream = !git pull upstream $(git rev-parse --abbrev-ref HEAD) --rebase --prune $@ && git submodule update --init --recursive
+    upstream = !git pull upstream $(git rev-parse --abbrev-ref HEAD) --rebase --prune $@
     save = !git add -A && git commit -m 'SAVEPOINT'
     wip = !git add -A && git commit -m 'WIP'
     undo = reset HEAD~1 --mixed
@@ -65,8 +77,18 @@
     changelog = log --pretty=format:'%Cgreen%d %Creset%s' --date=iso
     ls = log --oneline --format=format:'%h %an %ad' --name-status
     lb = !git reflog show --pretty=format:'%gs ~ %gd' --date=relative | grep 'checkout:' | grep -oE '[^ ]+ ~ .*' | awk -F~ '!seen[$1]++' | head -n 10 | awk -F' ~ HEAD@{' '{printf(\"  \\033[33m%s: \\033[37m %s\\033[0m\\n\", substr($2, 1, length($2)-1), $1)}'
+s   = "!git status && git push-status #" # Status including delta from @{push}.
+# Show the status of this branch relative to @{push}.
+push-status = "! push_branch=$(git push-branch 2>/dev/null) || { echo \"No push branch set.\" && exit 0; } \
+; both=$(git rev-list --left-right --count HEAD...@{push}) \
+; [[ $both == '0    0' ]] && echo \"Your branch is up to date with push branch $push_branch.\" \
+|| echo \"Your branch is ${both%%   *} commit(s) ahead and ${both##*    } commit(s) behind push branch $push_branch.\" #"
 
-[push]
-	default = simple
-[rebase]
-	autosquash = true
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[init]
+	defaultBranch = main
