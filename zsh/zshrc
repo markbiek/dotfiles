@@ -82,6 +82,8 @@ alias tn="tmux new -s"
 alias th="~/bin/th"
 
 # php
+alias php5.6="/Applications/MAMP/bin/php/php5.6.40/bin/php"
+alias composer5.6="php5.6 `which composer`"
 alias php7.1="/Applications/MAMP/bin/php/php7.1.33/bin/php"
 alias composer7.1="php7.1 `which composer`"
 alias php7.4="/Applications/MAMP/bin/php/php7.4.12/bin/php"
