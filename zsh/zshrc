@@ -9,13 +9,16 @@ autoload zcalc
 
 ############################################################################
 # oh-my-zsh
-export DISABLE_AUTO_UPDATE="true"
-export ZSH=/home/mark/.oh-my-zsh
 if [[ $OSTYPE == darwin* ]]; then
-	export ZSH=/Users/mark/.oh-my-zsh
+	export ZSH_HOME=/Users/mark
+	export DOTFILES=/Users/mark/dev/dotfiles
 else
-	export ZSH=/home/mark/.oh-my-zsh
+	export ZSH_HOME=/home/mark
+	export DOTFILES=/home/mark/dev/dotfiles
 fi
+export ZSH=$ZSH_HOME/.oh-my-zsh
+export DISABLE_AUTO_UPDATE="true"
+
 ZSH_THEME="ys"
 
 plugins=(
@@ -37,7 +40,7 @@ source $ZSH/oh-my-zsh.sh
 
 ############################################################################
 # Command prompt
-source ~/dev/dotfiles/zsh/plugins/zsh-git-prompt/zshrc.sh
+source $DOTFILES/zsh/plugins/zsh-git-prompt/zshrc.sh
 PROMPT='%~%b %# '
 RPROMPT='$(git_super_status)' # git status goes on the right
 ############################################################################
@@ -65,16 +68,13 @@ setopt HIST_BEEP                 # Beep when accessing nonexistent history.
 
 ################################################################################
 # Aliases
-alias ds='sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder;'
-alias wpeh="~/dev/wpe/artisan"
-alias date="gdate"
-alias df="gdf"
-alias du="gdu"
+if [[ $OSTYPE == darwin* ]]; then
+	source $DOTFILES/zsh/os-specific/osx/aliases
+fi
 
-# file types
-alias -s md=code
-alias -s json=code
-alias -s {css,scss,ts,js,jsx,html}=code
+if [[ $OSTYPE == ilinux* ]]; then
+	source $DOTFILES/zsh/os-specific/linux/aliases
+fi
 
 # tmux
 alias tls="tmux ls"
@@ -82,23 +82,12 @@ alias tt="tmux a -t"
 alias tn="tmux new -s"
 alias th="~/bin/th"
 
-# php
-alias php5.6="/Applications/MAMP/bin/php/php5.6.40/bin/php"
-alias composer5.6="php5.6 `which composer`"
-alias php7.1="/Applications/MAMP/bin/php/php7.1.33/bin/php"
-alias composer7.1="php7.1 `which composer`"
-alias php7.4="/Applications/MAMP/bin/php/php7.4.12/bin/php"
-alias composer7.4="php7.4 `which composer`"
-alias php8.0="/Applications/MAMP/bin/php/php8.0.0/bin/php"
-alias composer8.0="php8.0 `which composer`"
-
 alias nvmrc="node -v > .nvmrc"
 alias f10="fnm use 10"
 alias f12="fnm use 12"
 alias f14="fnm use 14"
 alias f16="fnm use 16"
 
-# ssh
 swpe() {
   ssh $1@$1.ssh.wpengine.net
 }
@@ -125,32 +114,23 @@ bindkey '^R' history-incremental-pattern-search-backward
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 ############################################################################
-source ~/dev/dotfiles/zsh/secret/env
+source $DOTFILES/zsh/secret/env
 
 export EDITOR=/usr/local/bin/vim
 export VISUAL=/usr/local/bin/vim
 
 export LESS="-F -X $LESS"
-export PATH="$PATH:/home/mark/.vgc"
-export PATH="/usr/local/opt/node@10/bin:$PATH"
-export PATH="$PATH:/Users/mark/.vgc:/Users/mark/bin:~/.composer/vendor/bin"
+
 if [[ $OSTYPE == darwin* ]]; then
-	export ANDROID_HOME=$HOME/Library/Android/sdk
-
-	export PATH="/Users/mark/Library/Python/3.8/bin":$PATH
-
-	export PATH=$PATH:$ANDROID_HOME/emulator
-	export PATH=$PATH:$ANDROID_HOME/tools
-	export PATH=$PATH:$ANDROID_HOME/tools/bin
-	export PATH=$PATH:$ANDROID_HOME/platform-tools
+	source $DOTFILES/zsh/os-specific/osx/paths
 fi
+if [[ $OSTYPE == linux* ]]; then
+	source $DOTFILES/zsh/os-specific/linux/paths
+fi
+
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
-export PATH="/Users/mark/.composer/vendor/bin:$PATH"
-export PATH="/usr/local/Cellar/mysql@5.7/5.7.32/bin:$PATH"
-export PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
-export PATH="/usr/local/opt/ruby/bin:$PATH"
 
 export LDFLAGS="-L/usr/local/opt/ruby/lib"
 export CPPFLAGS="-I/usr/local/opt/ruby/include"

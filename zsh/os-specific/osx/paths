@@ -1,0 +1,14 @@
+export PATH="$PATH:/Users/mark/.vgc:/Users/mark/bin:~/.composer/vendor/bin"
+
+export ANDROID_HOME=$HOME/Library/Android/sdk
+
+export PATH="/Users/mark/Library/Python/3.8/bin":$PATH
+
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+export PATH="/usr/local/Cellar/mysql@5.7/5.7.32/bin:$PATH"
+export PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
+export PATH="/usr/local/opt/ruby/bin:$PATH"
