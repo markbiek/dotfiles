@@ -12,9 +12,11 @@ autoload zcalc
 if [[ $OSTYPE == darwin* ]]; then
 	export ZSH_HOME=/Users/mark
 	export DOTFILES=/Users/mark/dev/dotfiles
+	export DOTFILES_PRIVATE=/Users/mark/dev/dotfiles-private
 else
 	export ZSH_HOME=/home/mark
 	export DOTFILES=/home/mark/dev/dotfiles
+	export DOTFILES_PRIVATE=/home/mark/dev/dotfiles-private
 fi
 export ZSH=$ZSH_HOME/.oh-my-zsh
 export DISABLE_AUTO_UPDATE="true"
@@ -114,7 +116,7 @@ bindkey '^R' history-incremental-pattern-search-backward
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 ############################################################################
-source $DOTFILES/zsh/secret/env
+source $DOTFILES_PRIVATE/zsh/secret/env
 
 export EDITOR=/usr/local/bin/vim
 export VISUAL=/usr/local/bin/vim
