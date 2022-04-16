@@ -24,7 +24,20 @@
 	excludesfile = /Users/mark/.gitignore
 	fileMode = false
 	text=auto
-	pager = less -+F -+X
+	#pager = less -+F -+X
+	pager = delta
+
+[interactive]
+	diffFilter = delta --color-only
+
+[delta]
+	navigate = true
+
+[merge]
+	conflictstyle = diff3
+
+[diff]
+	colorMoved = default
 
 [pull]
 	rebase = false
