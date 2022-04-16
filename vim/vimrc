@@ -16,7 +16,6 @@ Plugin 'qpkorr/vim-bufkill'
 Plugin 'tpope/vim-surround'
 Plugin 'ap/vim-css-color'
 Plugin 'dense-analysis/ale'
-Plugin 'SirVer/ultisnips'
 Plugin 'ianks/vim-tsx'
 Bundle 'craigemery/vim-autotag'
 
@@ -72,15 +71,6 @@ let g:ale_linter_aliases = {'typescriptreact': 'typescript'}
 let g:ale_linters = {'javascript': ['prettier', 'eslint'], 'typescript': ['prettier', 'tsserver', 'tslint'], 'php': ['phpcs', 'php']}
 let g:ale_fixers = {'json': ['prettier'], 'javascript': ['prettier', 'eslint'], 'typescript': ['prettier', 'eslint'],  'css': ['prettier'], 'scss': ['prettier'], 'sass': ['prettier'], 'less': ['prettier']}
 let g:ale_fix_on_save = 1
-
-" ultisnips settings
-let g:UltiSnipsSnippetsDir="$HOME/.vim/snips"
-let g:UltiSnipsSnippetDirectories=[$HOME . '/.vim/snips']
-let g:UltiSnipsEnableSnipMate=0
-let g:UltiSnipsEditSplit="vertical"
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " Turn on spell check for certain filetypes automatically
 " autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en_us
