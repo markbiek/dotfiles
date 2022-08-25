@@ -70,7 +70,7 @@ setopt HIST_BEEP                 # Beep when accessing nonexistent history.
 
 
 ################################################################################
-# Aliases
+# OS-specific Aliases
 if [[ $OSTYPE == darwin* ]]; then
 	source $DOTFILES/zsh/os-specific/osx/aliases
 fi
@@ -78,6 +78,8 @@ fi
 if [[ $OSTYPE == ilinux* ]]; then
 	source $DOTFILES/zsh/os-specific/linux/aliases
 fi
+
+# Global Aliases
 
 # tmux
 alias tls="tmux ls"
@@ -95,18 +97,6 @@ alias composer5.6="php5.6 /usr/local/bin/composer"
 alias python="/usr/bin/python3"
 alias pip="python -m pip"
 alias sail="[ -f sail ] && bash sail || bash vendor/bin/sail"
-alias n="/usr/local/bin/php8.1 /Users/mark/Dropbox/Docs/notes/notehelper.php"
-
-alias sandbox-errors="ssh -t wpcom-sandbox 'tail -F /tmp/php-errors'"
-alias trunk="git co trunk && git pull"
-
-export SANDBOX_IP=192.0.95.231
-export SANDBOX_HOST=markbieksandbox609280359.wordpress.com
-alias sandbox="goodhosts -q add -c $SANDBOX_IP public-api.wordpress.com"
-alias unsandbox="goodhosts -q remove -c public-api.wordpress.com"
-alias sbh="php8.1 ~/dev/personal/sbh/sbh.php"
-
-alias proxy-curl="curl --socks5 127.0.0.1:8080 --insecure -u 'markbiek:k*sTHVqNEKgK7qN-u9h@NfmE' "
 
 ################################################################################
 
@@ -121,8 +111,6 @@ bindkey '^R' history-incremental-pattern-search-backward
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 ############################################################################
-source $DOTFILES_PRIVATE/zsh/secret/env
-
 export EDITOR=/usr/bin/vim
 export VISUAL=/usr/bin/vim
 
@@ -153,6 +141,3 @@ eval "$(fnm env --use-on-cd)"
 
 export PATH="/usr/local/opt/php@7.4/bin:$PATH"
 export PATH="~/.composer/vendor/bin/:$PATH"
-export PATH="/Users/mark/.ebcli-virtual-env/executables:$PATH"
-export PATH="$JAVA_HOME/bin:$PATH"
-export PATH="/Users/mark/cmdline-tools/bin:/Users/mark/cmdline-tools/platform-tools:$PATH"

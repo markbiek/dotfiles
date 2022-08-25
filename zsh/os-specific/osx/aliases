@@ -1,5 +1,4 @@
 alias ds='sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder;'
-alias wpeh="~/dev/wpe/artisan"
 alias date="gdate"
 alias df="gdf"
 alias du="gdu"
@@ -12,3 +11,13 @@ alias -s {css,scss,ts,js,jsx,html}=code
 # php
 alias composer8.0="php8.0 `which composer`"
 alias composer8.1="php8.1 `which composer`"
+
+alias n="/usr/local/bin/php8.1 /Users/mark/Dropbox/Docs/notes/notehelper.php"
+alias sandbox-errors="ssh -t wpcom-sandbox 'tail -F /tmp/php-errors'"
+alias trunk="git co trunk && git pull"
+
+alias sandbox="goodhosts -q add -c $SANDBOX_IP public-api.wordpress.com"
+alias unsandbox="goodhosts -q remove -c public-api.wordpress.com"
+alias sbh="php8.1 ~/dev/personal/sbh/sbh.php"
+
+alias proxy-curl="curl --socks5 127.0.0.1:8080 --insecure -u 'markbiek:k*sTHVqNEKgK7qN-u9h@NfmE' "
