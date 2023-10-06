@@ -98,6 +98,16 @@ alias python="/usr/bin/python3"
 alias pip="python -m pip"
 alias sail="[ -f sail ] && bash sail || bash vendor/bin/sail"
 
+alias start-jetpack-sync="tmux new-session -d 'unison -ui text -repeat watch jetpack-mu-wpcom-plugin-moon' \; split-window -d 'unison -ui text -repeat watch jetpack-mu-wpcom-plugin-sun' \; attach"
+
+rector-check() {
+	/Users/mark/dev/a8c/wpcom-php-migration/vendor/bin/rector process -c /Users/mark/dev/a8c/wpcom-php-migration/rector.php --dry-run $@
+}
+
+rector-fix() {
+	/Users/mark/dev/a8c/wpcom-php-migration/vendor/bin/rector process -c /Users/mark/dev/a8c/wpcom-php-migration/rector.php $@ 
+}
+
 ################################################################################
 
 ############################################################################
@@ -118,6 +128,7 @@ export LESS="-F -X $LESS"
 
 if [[ $OSTYPE == darwin* ]]; then
 	source $DOTFILES/zsh/os-specific/osx/paths
+	source $DOTFILES/a8c/woa
 fi
 if [[ $OSTYPE == linux* ]]; then
 	source $DOTFILES/zsh/os-specific/linux/paths
@@ -130,7 +141,7 @@ fi
 export LDFLAGS="-L/usr/local/opt/ruby/lib"
 export CPPFLAGS="-I/usr/local/opt/ruby/include"
 
-export PATH="/opt/homebrew/bin/:~/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
+export PATH="/usr/local/bin:/opt/homebrew/bin/:~/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
 
 export PATH=~/.fnm:$PATH
 eval "`fnm env --use-on-cd`"
@@ -139,5 +150,15 @@ eval "`fnm env --use-on-cd`"
 export PATH=/Users/mark/.fnm:$PATH
 eval "$(fnm env --use-on-cd)"
 
-export PATH="/usr/local/opt/php@7.4/bin:$PATH"
 export PATH="~/.composer/vendor/bin/:$PATH"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/mark/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/mark/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/mark/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/mark/google-cloud-sdk/completion.zsh.inc'; fi
+
+# pnpm
+export PNPM_HOME="/Users/mark/Library/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end
