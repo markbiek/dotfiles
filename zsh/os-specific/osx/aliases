@@ -11,6 +11,7 @@ alias -s {css,scss,ts,js,jsx,html}=code
 # php
 alias composer8.0="php8.0 `which composer`"
 alias composer8.1="php8.1 `which composer`"
+alias composer8.2="php8.2 `which composer`"
 
 alias n="/usr/local/bin/php8.1 /Users/mark/Dropbox/Docs/notes/notehelper.php"
 alias sandbox-errors="ssh -t wpcom-sandbox 'tail -F /tmp/php-errors'"
