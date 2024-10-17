@@ -29,6 +29,7 @@ plugins=(
   git
   aws
   brew
+  codetest
   composer
   jsontools
   laravel5
@@ -97,8 +98,17 @@ alias composer5.6="php5.6 /usr/local/bin/composer"
 alias python="/usr/bin/python3"
 alias pip="python -m pip"
 alias sail="[ -f sail ] && bash sail || bash vendor/bin/sail"
+alias x16emu="~/dl/x16/x16emu_macos-r46/x16emu -scale 2 -quality nearest"
 
 alias start-jetpack-sync="tmux new-session -d 'unison -ui text -repeat watch jetpack-mu-wpcom-plugin-moon' \; split-window -d 'unison -ui text -repeat watch jetpack-mu-wpcom-plugin-sun' \; attach"
+alias automattic-sandbox-sync='unison -ui text -repeat watch automattic-sandbox'
+alias sync-wpcom='rsync -avzu -e ssh wpcom-sandbox:"~/public_html" /Users/mark/dev/a8c/sandbox/wpcom/ --exclude=.git --exclude=languages --exclude=themes --exclude=vendor --exclude=i --exclude=home.logged-out --exclude=widgets.wp.com --exclude="*.js" --exclude="*.map" --exclude="*.html"'
+alias sync-mc='rsync -avzu -e ssh wpcom-sandbox:"/home/missioncontrol/public_html" /Users/mark/dev/a8c/sandbox/missioncontrol/ --exclude=.git --exclude=languages --exclude=themes --exclude=vendor --exclude=i --exclude=home.logged-out --exclude="*.js" --exclude="*.map" --exclude="*.html" --exclude=i --exclude=home.logged-out --exclude="*.js" --exclude="*.map" --exclude="*.html"'
+alias unison-reset="unison -ui text automattic-sandbox -force ssh://wpdev@markbiek.dev.dfw.wordpress.com//home -batch"
+alias woa-woocommerce-sync='unison -ui text -repeat watch woa-woocommerce'
+alias jetpack-sandbox-sync='unison -ui text -repeat watch jetpack-sandbox'
+alias media-biek-sync='unison -ui text -repeat watch janustech-media'
+alias media-biek-unison-reset="unison -ui text janustech-media -force ssh://mark@janustech.net//home/mark/www/media.biek.dev/htdocs -batch"
 
 rector-check() {
 	/Users/mark/dev/a8c/wpcom-php-migration/vendor/bin/rector process -c /Users/mark/dev/a8c/wpcom-php-migration/rector.php --dry-run $@
@@ -106,6 +116,10 @@ rector-check() {
 
 rector-fix() {
 	/Users/mark/dev/a8c/wpcom-php-migration/vendor/bin/rector process -c /Users/mark/dev/a8c/wpcom-php-migration/rector.php $@ 
+}
+
+recent-branches() {
+        git reflog | grep 'checkout: moving' | awk '{print $8}' | egrep -v 'arcpatch|^[0-9a-f]{40}$' | head -n 15 | sort -u
 }
 
 ################################################################################
@@ -162,3 +176,14 @@ if [ -f '/Users/mark/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/mark
 export PNPM_HOME="/Users/mark/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
+
+# Uncomment when using PHP 8.1
+#export PATH="/opt/homebrew/opt/php@8.1/bin:$PATH"
+#export PATH="/opt/homebrew/opt/php@8.1/sbin:$PATH"
+
+# Uncomment when using PHP 8.2
+export PATH="/opt/homebrew/opt/php@8.2/bin:$PATH"
+export PATH="/opt/homebrew/opt/php@8.2/sbin:$PATH"
+
+# Lando
+export PATH="/Users/mark/.lando/bin${PATH+:$PATH}"; #landopath
