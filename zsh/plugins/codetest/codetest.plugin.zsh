@@ -1,24 +1,41 @@
 #! /bin/zsh
 setopt BASH_REMATCH
 function codetest () {
-	read "name?Enter GitHub username (or repo slug without the automattic-hiring org part)"
-	echo "Username: $name"
-	read "branch?Enter GitHub branch to test sync names command"
-	echo "Branch: $branch"
+	function info() {
+		echo -e "\033[1;34m$1\033[0m"
+	}
+
+	function error() {
+		echo -e "\033[41m\033[1;37m$1\033[0m"
+	}
+
+	read "name?Enter GitHub username (or repo slug without the automattic-hiring org part): "
+	info "Username: $name"
+
+	read "branch?Enter GitHub branch to test sync names command: "
+	info "Branch: $branch"
+
 	repo="git@github.com:automattic-hiring/backend-v2-code-test-$name.git"
 	if test -z "$name" || test -z "$repo" || test -z "$branch"
 	then
-		echo "You should add the username and branch name before proceeding. Try again."
+		error "You should add the username and branch name before proceeding. Try again."
 		return
 	fi
-	
-	echo "Adding remote $name for repo $repo"
+
+	if [ ! -d ".git" ]; then
+		git init
+	fi
+
+	info "Adding remote $name for repo $repo"
 	git remote add $name $repo 
-	echo "Fetching $name at $repo"
+
+	info "Fetching $name at $repo"
 	git fetch $name 
-	echo "Checking out $name/$branch"
-	git checkout $name/$branch
-	echo "Starting lando and resetting db"
+
+	info "Creating branch $branch from $name/$branch"
+	git checkout -b $branch $name/$branch
+
+	info "Resetting db"
 	git checkout trunk .lando.yml
 	git checkout trunk bin/setup.sh
 	git checkout trunk .env
@@ -27,8 +44,9 @@ function codetest () {
 	git checkout trunk .wp-tests-config.php
 	git checkout trunk .nginx-wordpress.conf
 	git checkout trunk .wp-cli.yml
+
 	lando start
 	lando wp rusty reset-data
-	echo "Ready to go. Run lando wp rusty sync-names to start testing"
-	echo "Scorecard template is here https://github.com/automattic-hiring/code-test-web-v2/blob/trunk/internal/SCORECARD.md#scorecard-to-use"
+	info "Ready to go. Run lando wp rusty sync-names to start testing"
+	info "Scorecard template is here https://github.com/automattic-hiring/code-test-web-v2/blob/trunk/internal/SCORECARD.md#scorecard-to-use"
 }
