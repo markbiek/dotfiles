@@ -1,0 +1,3 @@
+# A8C sandbox-specific paths
+
+export PATH=$PATH:/home/wpcom/bin:/home/wpcom/wpcom-php-migration/vendor/bin

@@ -1,0 +1,95 @@
+# A8C aliases
+
+alias gbpx='git branch | grep arcpatch | xargs -n1 echo git branch --delete --force'
+alias gbpX='git branch | grep arcpatch | xargs -n1 git branch --delete --force'
+alias grok='php ~/public_html/bin/grok.php'
+alias which-jetpack="grep 'JETPACK_PLUGIN_LOADER' ~/public_html/.config/jetpack-loader.php | awk '{print \$3}'"
+alias clean-jetpack-mu-wpcom-plugin="cd ~/public_html/wp-content/mu-plugins/jetpack-mu-wpcom-plugin && rm -rf ./{moon,sun,staging} && git checkout . && cd -"
+alias clean-jetpack-plugin="cd ~/public_html/wp-content/mu-plugins/jetpack-plugin && rm -rf ./{moon,sun,staging} && git checkout . && cd -"
+alias reset-error-log="cat /dev/null > /tmp/php-errors && clear && tail -f /tmp/php-errors"
+
+function suite-isolated {
+  echo "phpunit -c ~/public_html/bin/tests/isolated/phpunit.xml --colors --testdox --testsuite=$@"
+  phpunit -c ~/public_html/bin/tests/isolated/phpunit.xml --colors --testdox --testsuite="$@"
+}
+
+suite() {
+	local phpunitxml
+
+	if [ -z "$1" ]; then
+		echo "No test type specified."
+		return 1
+	fi
+
+	if [ -z "$2" ]; then
+		echo "No test suite specified."
+		return 1
+	fi
+
+	phpunitxml=~/public_html/bin/tests/$1/phpunit.xml
+
+	if ! test -f "$phpunitxml"; then
+		echo "phpunit.xml not found: $phpunitxml"
+		return 1
+	fi
+
+	echo "phpunit -c $phpunitxml --colors --testdox --testsuite=${@:2}"
+	phpunit -c $phpunitxml --colors --testdox --testsuite="${@:2}"
+}
+
+_complete_suite_names() {
+	local basedir cur prev
+
+	basedir=~/public_html/bin/tests
+	cur=${COMP_WORDS[COMP_CWORD]}
+	prev=${COMP_WORDS[COMP_CWORD-1]}
+
+	case ${COMP_CWORD} in
+		1)
+			local types=$(for dir in $basedir/*/; do basename "$dir"; done)
+			COMPREPLY=( $(compgen -W "${types}" -- "$cur") )
+			;;
+		2)
+			local suite_names=$(cat $basedir/$prev/phpunit.xml | grep "<testsuite name=" | awk -F'"' '{print $2}')
+			COMPREPLY=( $(compgen -W "${suite_names}" -- "$cur") )
+			;;
+		*)
+			COMPREPLY=()
+			;;
+	esac
+}
+
+
+theme () {
+    wp theme activate "$1" --url=${2:-markbiek.dev.dfw}.wordpress.com
+}
+
+rector-check() {
+    ~/wpcom-php-migration/vendor/bin/rector process -c ~/wpcom-php-migration/rector.php --dry-run $@
+}
+
+rector-fix() {
+    ~/wpcom-php-migration/vendor/bin/rector process -c ~/wpcom-php-migration/rector.php $@
+}
+
+kill-test-sites() {
+	unblocked_count=$(wp bulk-delete list --format=json | jq '.unblocked | keys | length')
+	if [ "$unblocked_count" -eq 0 ]; then
+		echo "There are no unblocked sites to delete"
+		return
+	fi
+
+	# Output sites to be deleted
+	echo "Sites to be deleted:"
+	wp bulk-delete list --format=json | jq '.unblocked[] | .domain'
+
+	read -p "Are you sure you want to delete all unblocked test sites? (y/n) " answer
+	answer=$(echo "$answer" | tr '[:upper:]' '[:lower:]')
+
+	if [[ $answer != "y" ]]; then
+		echo "Aborting..."
+		return
+	fi
+
+	wp bulk-delete list --format=json | jq -r '.unblocked[] | .blog_id' | while read blog_id; do wp bulk-delete delete --force --blog_id=$blog_id; done
+}

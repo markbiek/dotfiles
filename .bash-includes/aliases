@@ -1,0 +1,22 @@
+# Global aliases
+
+alias ll='ls $LS_OPTIONS -lah'
+alias ls='ls --color=auto'
+
+alias tls="tmux ls"
+alias tt="tmux a -t"
+alias tn="tmux new -s"
+
+alias trunk="git co trunk && git pull --ignore-externals"
+alias rebase-trunk="git pull --rebase origin trunk --ignore-externals"
+alias amend-push="git amend && git pushup --force"
+
+alias python="/usr/bin/python3"
+
+function recent-branches {
+	git reflog | grep 'checkout: moving' | awk '{print $8}' | egrep -v 'arcpatch|^[0-9a-f]{40}$' | head -n 15 | sort -u
+}
+
+gbb() {
+    git checkout $(git for-each-ref refs/heads --color=always --sort -committerdate --format='%(HEAD)%(color:reset);%(color:yellow)%(refname:short)%(color:reset);%(contents:subject);%(color:green)(%(committerdate:relative))%(color:blue);<%(authorname)>' | sed 's/[🀀-🏿]/?/g' | column -t -s ';' | cut -c-$COLUMNS | fzf --ansi --no-sort --border --height 40% | awk '{print $1}')
+}
