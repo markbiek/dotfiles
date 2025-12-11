@@ -11,12 +11,10 @@ autoload zcalc
 # oh-my-zsh
 if [[ $OSTYPE == darwin* ]]; then
 	export ZSH_HOME=/Users/mark
-	export DOTFILES=/Users/mark/dev/dotfiles
 	export DOTFILES_PRIVATE=/Users/mark/dev/dotfiles-private
-	source ~/dev/dotfiles/zsh-includes/plugins/codetest/codetest.plugin.zsh
+	source ~/.zsh-includes/plugins/codetest/codetest.plugin.zsh
 else
 	export ZSH_HOME=/home/mark
-	export DOTFILES=/home/mark/dev/dotfiles
 	export DOTFILES_PRIVATE=/home/mark/dev/dotfiles-private
 fi
 export ZSH=$ZSH_HOME/.oh-my-zsh
@@ -42,7 +40,7 @@ source $ZSH/oh-my-zsh.sh
 
 ############################################################################
 # Command prompt
-source $DOTFILES/zsh-includes/plugins/zsh-git-prompt/zshrc.sh
+source ~/.zsh-includes/plugins/zsh-git-prompt/zshrc.sh
 PROMPT='%~%b %# '
 RPROMPT='$(git_super_status)' # git status goes on the right
 ############################################################################
@@ -71,19 +69,15 @@ setopt HIST_BEEP                 # Beep when accessing nonexistent history.
 ################################################################################
 # OS-specific Aliases
 if [[ $OSTYPE == darwin* ]]; then
-	source $DOTFILES/zsh-includes/os-specific/osx/aliases
+	source ~/.zsh-includes/os-specific/osx/aliases
 
 	# A8C-specific aliases
 	# These are only loaded on macOS.
-	source $DOTFILES/zsh-includes/a8c/aliases
-fi
-
-if [[ $OSTYPE == ilinux* ]]; then
-	source $DOTFILES/zsh/os-specific/linux/aliases
+	source ~/.zsh-includes/a8c/aliases
 fi
 
 # Global Aliases
-source $DOTFILES/zsh-includes/aliases
+source ~/.zsh-includes/aliases
 
 ############################################################################
 # Settings
@@ -103,11 +97,11 @@ export LESS="-F -X $LESS"
 ############################################################################
 
 if [[ $OSTYPE == darwin* ]]; then
-	source $DOTFILES/zsh-includes/os-specific/osx/paths
-	source $DOTFILES/zsh-includes/a8c/woa
+	source ~/.zsh-includes/os-specific/osx/paths
+	source ~/.zsh-includes/a8c/woa
 fi
 if [[ $OSTYPE == linux* ]]; then
-	source $DOTFILES/zsh-includes/os-specific/linux/paths
+	source ~/.zsh-includes/os-specific/linux/paths
 fi
 
 if command -v pyenv 1>/dev/null 2>&1; then
