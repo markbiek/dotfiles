@@ -1,0 +1,66 @@
+# A8C-specific aliases
+
+export THEME_GITHUB_TOKEN=
+
+alias proxy-curl="curl --socks5 127.0.0.1:8080 --insecure -u 'markbiek:***REMOVED***' "
+alias sandbox-errors="ssh -t wpcom-sandbox 'tail -F /tmp/php-errors'"
+alias sandbox="goodhosts -q add -c $SANDBOX_IP public-api.wordpress.com"
+alias unsandbox="goodhosts -q remove -c public-api.wordpress.com"
+alias sbh="php8.1 ~/dev/personal/sbh/sbh.php"
+alias garden-mysql="mysql -uroot -ppassword -h127.0.0.1 wordpress -P "
+
+alias sync-wpcom='rsync -avzu -e ssh wpcom-sandbox:"~/public_html" /Users/mark/dev/a8c/sandbox/wpcom/ --exclude=.git --exclude=languages --exclude=themes --exclude=vendor --exclude=i --exclude=home.logged-out --exclude=widgets.wp.com --exclude="*.js" --exclude="*.map" --exclude="*.html"'
+alias sync-mc='rsync -avzu -e ssh wpcom-sandbox:"/home/missioncontrol/public_html" /Users/mark/dev/a8c/sandbox/missioncontrol/ --exclude=.git --exclude=languages --exclude=themes --exclude=vendor --exclude=i --exclude=home.logged-out --exclude="*.js" --exclude="*.map" --exclude="*.html" --exclude=i --exclude=home.logged-out --exclude="*.js" --exclude="*.map" --exclude="*.html"'
+alias automattic-sandbox-sync='unison -ui text -repeat watch automattic-sandbox'
+alias automattic-sandbox-reset="unison -ui text automattic-sandbox -force ssh://wpdev@markbiek.dev.dfw.wordpress.com//home -batch"
+alias jetpack-sandbox-sync='unison -ui text -repeat watch jetpack-sandbox'
+alias jetpack-mu-wpcom-sandbox-sync='unison -ui text -repeat watch jetpack-mu-wpcom-plugin'
+alias woa-woocommerce-sync='unison -ui text -repeat watch woa-woocommerce'
+alias media-biek-sync='unison -ui text -repeat watch janustech-media'
+alias media-biek-unison-reset="unison -ui text janustech-media -force ssh://mark@janustech.net//home/mark/www/media.biek.dev/htdocs -batch"
+
+alias start-raccoon-tunnel="jurassictube -u markbiek -s markbiek-raccoon -h localhost:8082"
+alias stop-raccoon-tunnel="jurassictube -b -s markbiek-raccoon"
+alias assh="atomic-connect ssh "
+alias ascp="atomic-connect scp "
+
+alias sg='/usr/local/bin/site-gardener'
+alias pr-checker="node /Users/mark/dev/a8c/pr-checker/index.js"
+
+sync-garden-bridge() {
+    if [ -z "$1" ]; then
+        echo "Error: Domain name is required"
+        echo "Usage: sync-garden-bridge <domain-name>"
+        return 1
+    fi
+    
+    sg code push "$1" wp-content/mu-plugins/garden-bridge
+}
+
+rector-check() {
+	/Users/mark/dev/a8c/wpcom-php-migration/vendor/bin/rector process -c /Users/mark/dev/a8c/wpcom-php-migration/rector.php --dry-run $@
+}
+
+rector-fix() {
+	/Users/mark/dev/a8c/wpcom-php-migration/vendor/bin/rector process -c /Users/mark/dev/a8c/wpcom-php-migration/rector.php $@ 
+}
+
+function wpcom() {
+  if [[ $# -eq 0 ]]; then
+    # Interactive SSH session - cd to public_html
+    ssh -t wpcom-sandbox "cd public_html && exec \$SHELL -l"
+  else
+    # Run command in public_html directory
+    # Note: For commands with spaces (like commit messages), quote the entire command:
+    # wpcom 'git commit -m "message with spaces"'
+    ssh wpcom-sandbox "cd public_html && $*"
+  fi
+}
+
+function gh() {
+  if [[ "$@" == *"github.a8c.com"* ]]; then
+    HTTPS_PROXY=socks5://127.0.0.1:8080 HTTP_PROXY=socks5://127.0.0.1:8080 command gh "$@"
+  else
+    command gh "$@"
+  fi
+}

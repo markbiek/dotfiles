@@ -1,0 +1,31 @@
+### Start Atomic Workflow
+#declare -r atomic_ssh="woa"
+#declare -r jetpack_dir="/Users/mark/dev/a8c/woa/jetpack/"
+#
+#atomic-rsync() {
+#  rsync -azP --delete --delete-after --exclude={'.config','.idea','.git'} ${jetpack_dir}projects/plugins/jetpack/ ${atomic_ssh}:/srv/htdocs/wp-content/plugins/jetpack/
+#  rsync -azP --delete --delete-after --exclude={'.config','.idea','.git'} ${jetpack_dir}projects/packages/ ${atomic_ssh}:/srv/htdocs/wp-content/packages/
+#  rsync -azP --delete --delete-after --exclude={'.config','.idea','.git'} ${jetpack_dir}projects/js-packages/ ${atomic_ssh}:/srv/htdocs/wp-content/js-packages/
+#  rsync -azP --delete --delete-after --exclude={'.config','.idea','.git'} ${jetpack_dir}tools/docker/mu-plugins/wpcomsh/ ${atomic_ssh}:/srv/htdocs/wp-content/mu-plugins/wpcomsh/
+#}
+#
+#atomic-ssh(){
+#  local ssh_check=$(ssh -O check ${atomic_ssh} 2>&1)
+#  if [[ $ssh_check == *"No such file or directory"* ]]; then
+#    echo "Establishing connection to $atomic_ssh..."
+#    ssh -M -N -f ${atomic_ssh}
+#    local ssh_check=$(ssh -O check ${atomic_ssh} 2>&1)
+#  fi
+#
+#  if [[ $ssh_check == *"Master running"* ]]; then
+#    echo "Connected to $atomic_ssh."
+#  else
+#    echo $ssh_check
+#  fi
+#}
+#
+#atomic-watch(){
+#  atomic-ssh
+#  atomic-rsync; fswatch -o ${jetpack_dir}projects/plugins/jetpack/ ${jetpack_dir}projects/packages/ ${jetpack_dir}projects/js-packages/ ${jetpack_dir}tools/docker/mu-plugins/wpcomsh/ | while read f; do atomic-rsync; done
+#}
+### End Atomic Workflow

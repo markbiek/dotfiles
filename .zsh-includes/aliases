@@ -1,0 +1,37 @@
+# Global aliases for all platforms
+
+# tmux
+alias tls="tmux ls"
+alias tt="tmux a -t"
+alias tn="tmux new -s"
+alias th="~/bin/th"
+
+alias nvmrc="node -v > .nvmrc"
+
+alias python="/usr/bin/python3"
+alias pip="python -m pip"
+alias sail="[ -f sail ] && bash sail || bash vendor/bin/sail"
+
+alias trunk="git co trunk && git pull"
+alias rebase-trunk="git pull --rebase origin trunk"
+
+recent-branches() {
+        git reflog | grep 'checkout: moving' | awk '{print $8}' | egrep -v 'arcpatch|^[0-9a-f]{40}$' | head -n 15 | sort -u
+}
+
+gbb() {
+    git checkout $(git for-each-ref refs/heads --color=always --sort -committerdate --format='%(HEAD)%(color:reset);%(color:yellow)%(refname:short)%(color:reset);%(contents:subject);%(color:green)(%(committerdate:relative))%(color:blue);<%(authorname)>' | sed 's/[🀀-🏿]/?/g' | column -t -s ';' | cut -c-$COLUMNS | fzf --ansi --no-sort --border --height 40% | awk '{print $1}')
+}
+
+phpcbf_last_commit() {
+    # Get the list of changed files from the most recent commit
+    local changed_files=$(git log -1 --name-only --pretty=format: | grep -E '\.php$' | tr '\n' ' ')
+    
+    if [[ -z "$changed_files" ]]; then
+        echo "No PHP files changed in the last commit"
+        return 0
+    fi
+    
+    echo "Running phpcbf on: $changed_files"
+    phpcbf $changed_files
+}
