@@ -1,12 +1,3 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
-if [[ $OSTYPE == darwin* ]]; then
-	export DOTFILES=/Users/mark/dev/dotfiles
-elif [[ "$USER" == "wpdev" ]]; then
-	export DOTFILES=/home/wpcom/dev/dotfiles
-else
-	export DOTFILES=/home/mark/dev/dotfiles
-fi
-
 # If not running interactively, don't do anything:
 [ -z "$PS1" ] && return
 shopt -s checkwinsize
@@ -43,15 +34,15 @@ export HISTSIZE=100000
 
 # A8C sandbox-specific stuff
 if [[ "$USER" == "wpdev" ]]; then
-    source "$DOTFILES/bash-includes/a8c/aliases"
-	source "$DOTFILES/bash-includes/a8c/paths"
+	source "~/.bash-includes/a8c/aliases"
+	source "~/.bash-includes/a8c/paths"
 
 	sudo xdebug check
 	php -v | head -n 1 | awk '{print $1, $2}'
 fi
 
 # Load global aliases
-source "$DOTFILES/bash-includes/aliases"
+source "~/.bash-includes/aliases"
 
 if [ -n "$SSH_AUTH_SOCK" ] && [ "$SSH_AUTH_SOCK" != "$HOME/.ssh/ssh_auth_sock" ]; then
     ln -sf "$SSH_AUTH_SOCK" "$HOME/.ssh/ssh_auth_sock"
