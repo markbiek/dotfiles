@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "cleanupPeriodDays": 30,
+  "env": {
+    "CLAUDE_CODE_ENABLE_TELEMETRY": "0"
+  },
+  "includeCoAuthoredBy": false,
+  "permissions": {
+    "allow": [
+      "Fetch",
+      "WebFetch",
+      "mcp__perplexity-mcp__perplexity_search_web",
+      "Bash(ls:*)",
+      "Bash(find:*)",
+      "Bash(mkdir:*)",
+      "Bash(cat:*)",
+      "Bash(chmod:*)",
+      "Bash(realpath:*)",
+      "Bash(grep:*)",
+      "Bash(rg:*)",
+      "Bash(sed:*)",
+      "Bash(diff:*)",
+      "Bash(jq:*)",
+      "Bash(wc:*)",
+      "Bash(tr:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git fetch:*)",
+      "Bash(git rebase:*)",
+      "Bash(git checkout:*)",
+      "Bash(git clone:*)",
+      "Bash(git worktree list:*)",
+      "Bash(npm run:*)",
+      "Bash(npm install:*)",
+      "Bash(npm uninstall:*)",
+      "Bash(npm rebuild:*)",
+      "Bash(npm link:*)",
+      "Bash(npm create:*)",
+      "Bash(npm start:*)",
+      "Bash(npx:*)",
+      "Bash(source:*)",
+      "Bash(curl:*)",
+      "Bash(echo:*)",
+      "Bash(env:*)",
+      "Bash(timeout:*)",
+      "Bash(tmux display-message:*)",
+      "Bash(tmux source-file:*)",
+      "Bash(tmux list-sessions:*)",
+      "Bash(tmux list-keys:*)",
+      "Bash(tmux show-options:*)",
+      "Bash(code:*)",
+      "Bash(code-insiders:*)",
+      "Bash(gemini:*)",
+      "Bash(ada harvest:*)",
+      "Bash(claude mcp add:*)",
+      "Bash(wp:*)",
+      "Bash(for:*)",
+      "Bash(if:*)",
+      "Bash(then:*)",
+      "Bash(else:*)",
+      "Bash(fi:*)",
+      "Bash(done:*)",
+      "Bash(wp-env start:*)",
+      "Bash(wp-env status:*)",
+      "Bash(docker logs:*)",
+      "Bash(wp-env stop:*)",
+      "Bash(docker system prune:*)"
+    ],
+    "deny": [
+      "WebSearch"
+    ],
+    "additionalDirectories": []
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/statusline.sh",
+    "padding": 0
+  },
+  "enabledPlugins": {
+    "mermaid-diagram-to-image@emdashcodes-claude-code-plugins": true
+  },
+  "feedbackSurveyState": {
+    "lastShownTime": 1754082569934
+  }
+}
