@@ -108,5 +108,5 @@ if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 
-export PATH="~/.composer/vendor/bin/:$PATH"
+export PATH="~/.composer/vendor/bin/:~/.local/bin:$PATH"
 eval "$(~/.local/bin/mise activate zsh)"
