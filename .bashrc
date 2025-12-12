@@ -21,8 +21,8 @@ umask 022
 export LS_OPTIONS='--color=auto'
 eval "`dircolors`"
 
-if [ -f "~/.git-completion.bash" ]; then
-	source ~/.git-completion.bash
+if [ -f "$HOME/.git-completion.bash" ]; then
+	source $HOME/.git-completion.bash
 fi
 
 if [ -f "$HOME/.bash-git-prompt/gitprompt.sh" ]; then
@@ -32,17 +32,20 @@ fi
 
 export HISTSIZE=100000
 
+export PATH="$HOME/bin:$PATH"
+
 # A8C sandbox-specific stuff
 if [[ "$USER" == "wpdev" ]]; then
-	source "~/.bash-includes/a8c/aliases"
-	source "~/.bash-includes/a8c/paths"
+	source "$HOME/.bash-includes/a8c/aliases"
+	source "$HOME/.bash-includes/a8c/paths"
 
 	sudo xdebug check
 	php -v | head -n 1 | awk '{print $1, $2}'
 fi
 
 # Load global aliases
-source "~/.bash-includes/aliases"
+source "$HOME/.bash-includes/aliases"
+
 
 if [ -n "$SSH_AUTH_SOCK" ] && [ "$SSH_AUTH_SOCK" != "$HOME/.ssh/ssh_auth_sock" ]; then
     ln -sf "$SSH_AUTH_SOCK" "$HOME/.ssh/ssh_auth_sock"
