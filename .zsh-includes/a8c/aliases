@@ -57,10 +57,13 @@ function wpcom() {
   fi
 }
 
-function gh() {
-  if [[ "$@" == *"github.a8c.com"* ]]; then
-    HTTPS_PROXY=socks5://127.0.0.1:8080 HTTP_PROXY=socks5://127.0.0.1:8080 command gh "$@"
-  else
-    command gh "$@"
-  fi
-}
+#function gh() {
+  #if [[ "$@" == *"github.a8c.com"* ]]; then
+#    HTTPS_PROXY=socks5://127.0.0.1:8080 HTTP_PROXY=socks5://127.0.0.1:8080 command gh "$@"
+  #else
+  #  command gh "$@"
+  #fi
+#}
+
+HTTPS_PROXY=socks5://127.0.0.1:8080
+HTTP_PROXY=socks5://127.0.0.1:8080
