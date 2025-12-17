@@ -1,0 +1,41 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run the `open default settings` command
+// from the command palette or from `Zed` application menu.
+{
+  "terminal": {
+    "font_size": 12.0
+  },
+  "project_panel": {
+    "hide_gitignore": true
+  },
+  "tabs": {
+    "git_status": true
+  },
+  "title_bar": {
+    "show_menus": false,
+    "show_onboarding_banner": false
+  },
+  "debugger": {
+    "button": false
+  },
+  "diagnostics": {
+    "button": false
+  },
+  "search": {
+    "case_sensitive": true,
+    "regex": true
+  },
+  "theme": "Hen House Light",
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+  "vim_mode": true,
+  "ui_font_size": 14,
+  "buffer_font_size": 14
+}
