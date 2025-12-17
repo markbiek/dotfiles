@@ -16,3 +16,6 @@ hyper/hyper_plugins/cache/
 .claude/**/.credentials.json
 .claude/**/debug
 .claude/**/file-history
+.config/zed/.tmp*
+.config/zed/embeddings/
+.config/zed/prompts/
