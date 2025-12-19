@@ -7,35 +7,40 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "agent": {
+    "always_allow_tool_actions": false,
+    "model_parameters": [],
+  },
+  "disable_ai": false,
   "terminal": {
-    "font_size": 12.0
+    "font_size": 12.0,
   },
   "project_panel": {
-    "hide_gitignore": true
+    "hide_gitignore": true,
   },
   "tabs": {
-    "git_status": true
+    "git_status": true,
   },
   "title_bar": {
     "show_menus": false,
-    "show_onboarding_banner": false
+    "show_onboarding_banner": false,
   },
   "debugger": {
-    "button": false
+    "button": false,
   },
   "diagnostics": {
-    "button": false
+    "button": false,
   },
   "search": {
     "case_sensitive": true,
-    "regex": true
+    "regex": true,
   },
-  "theme": "Hen House Light",
+  "theme": "Gruvbox Dark",
   "telemetry": {
     "diagnostics": false,
-    "metrics": false
+    "metrics": false,
   },
   "vim_mode": true,
   "ui_font_size": 14,
-  "buffer_font_size": 14
+  "buffer_font_size": 14,
 }
