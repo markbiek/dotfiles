@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(git -C /Users/mark/dev/dotfiles ls-files .claude/)"
+      "Bash(git -C /Users/mark/dev/dotfiles ls-files .claude/)",
+      "Bash(git remote add:*)"
     ]
   }
 }
