@@ -1,0 +1,22 @@
+# Ignore everything by default
+*
+
+# Keep these files
+!.gitignore
+!settings.json
+!settings.local.json
+!statusline.sh
+
+# Keep these directories
+!commands/
+!commands/**
+!agents/
+!agents/**
+!hooks/
+!hooks/**
+!skills/
+!skills/**
+!docs/
+!docs/**
+!plans/
+!plans/**
