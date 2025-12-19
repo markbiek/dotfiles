@@ -6,9 +6,6 @@
 [gpg]
 	format = ssh
 
-[gpg "ssh"]
-	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
-
 [commit]
 	gpgsign = false
 
@@ -34,16 +31,7 @@
 	excludesfile = /Users/mark/.gitignore
 	fileMode = false
 	text=auto
-	pager = delta
-
-[interactive]
-	diffFilter = delta --color-only
-
-[delta]
-	navigate = true
-
-[merge]
-	conflictstyle = diff3
+	pager = less -+F -+X
 
 [diff]
 	colorMoved = default
