@@ -49,7 +49,10 @@ fi
 source "$HOME/.bash-includes/aliases"
 
 
-if [ -n "$SSH_AUTH_SOCK" ] && [ "$SSH_AUTH_SOCK" != "$HOME/.ssh/ssh_auth_sock" ]; then
-    ln -sf "$SSH_AUTH_SOCK" "$HOME/.ssh/ssh_auth_sock"
-    export SSH_AUTH_SOCK="$HOME/.ssh/ssh_auth_sock"
+if [[ -S "$SSH_AUTH_SOCK" && "$SSH_AUTH_SOCK" != "$HOME/.ssh/auth_sock" ]]; then
+    # Only update symlink if current one is dead or missing
+    if [[ ! -S "$HOME/.ssh/auth_sock" ]]; then
+        ln -sf "$SSH_AUTH_SOCK" "$HOME/.ssh/auth_sock"
+    fi
+    export SSH_AUTH_SOCK="$HOME/.ssh/auth_sock"
 fi

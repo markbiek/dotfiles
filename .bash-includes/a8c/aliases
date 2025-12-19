@@ -93,3 +93,13 @@ kill-test-sites() {
 
 	wp bulk-delete list --format=json | jq -r '.unblocked[] | .blog_id' | while read blog_id; do wp bulk-delete delete --force --blog_id=$blog_id; done
 }
+
+fix-ssh() {
+    local sock=$(find /tmp -type s -name "agent.*" -user $USER 2>/dev/null | head -1)
+    if [[ -S "$sock" ]]; then
+        ln -sf "$sock" "$HOME/.ssh/auth_sock"
+        echo "Updated symlink to $sock"
+    else
+        echo "No valid agent socket found"
+    fi
+}
