@@ -30,6 +30,8 @@ if [ -f "$HOME/.bash-git-prompt/gitprompt.sh" ]; then
     source $HOME/.bash-git-prompt/gitprompt.sh
 fi
 
+set -o vi
+
 export HISTSIZE=100000
 
 export PATH="$HOME/bin:$PATH"
