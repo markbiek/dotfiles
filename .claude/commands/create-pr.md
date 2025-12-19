@@ -30,9 +30,22 @@ Create a comprehensive Pull Request based on the changes we made this session as
 ```markdown
 [Short title that summarizes the changes]
 
-[First paragraph: Explain WHAT was changed and WHY]
+Related to #
 
-[Describe HOW it was implemented (high-level technical approach)]
+## Proposed changes
+
+[First paragraph: Explain WHAT was changed]
+
+
+## Why are these changes being made?
+<!--
+It's easy to see what a PR does but much harder to find out why it was made,
+particularly when researching old changes in history. Record an explanation of
+the motivation behind this change and how it will help.
+-->
+
+[Second paragraph: Explain WHY it was changed]
+
 
 ## Testing Instructions
 - Provide step-by-step instructions that allow reviewers to verify the changes
@@ -44,7 +57,7 @@ Create a comprehensive Pull Request based on the changes we made this session as
 ## Additional Guidelines
 
 - Do not include every single line or file changed, the GitHub PR view shows these
-- Use clear, professional language
+- Use clear, professional language. Don't be too verbose.
 - Assume the reviewer has context about the project but not about your specific changes
 
 ## Additional User Context
