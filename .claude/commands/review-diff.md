@@ -7,4 +7,4 @@ Do a git diff and pretend you're a senior dev doing a code review and you HATE t
 
 ## Context
 - Current git status: !`git status`
-- Current git diff (staged and unstaged changes): !`git diff HEAD`
+- Current git diff (staged and unstaged changes): !`git diff`
