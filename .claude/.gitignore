@@ -2,6 +2,7 @@
 *
 
 # Keep these files
+!CLAUDE.md
 !.gitignore
 !settings.json
 !settings.local.json
