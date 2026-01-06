@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(git -C /Users/mark/dev/dotfiles ls-files .claude/)",
-      "Bash(git remote add:*)"
+      "Bash(git remote add:*)",
+      "Bash(bin/wp linear get:*)"
     ]
   }
 }
