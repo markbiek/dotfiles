@@ -3,7 +3,32 @@
     "allow": [
       "Bash(git -C /Users/mark/dev/dotfiles ls-files .claude/)",
       "Bash(git remote add:*)",
-      "Bash(bin/wp linear get:*)"
+      "Bash(bin/wp linear get:*)",
+      
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git show:*)",
+      "Bash(git branch:*)",
+      "Bash(git ls-files:*)",
+      "Bash(git ls-remote:*)",
+      "Bash(git remote -v:*)",
+      "Bash(git remote show:*)",
+      "Bash(git rev-parse:*)",
+      "Bash(git describe:*)",
+      "Bash(git blame:*)",
+      "Bash(git shortlog:*)",
+      "Bash(git stash list:*)",
+      "Bash(git tag -l:*)",
+      "Bash(git config --get:*)",
+      "Bash(git config --list:*)",
+      
+      "Bash(gh pr:*)",
+      
+      "Read(/tmp/**)",
+      "Write(/tmp/**)",
+      "Read(**/plans/**)",
+      "Write(**/plans/**)"
     ]
   }
 }
