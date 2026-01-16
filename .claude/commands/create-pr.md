@@ -52,6 +52,7 @@ the motivation behind this change and how it will help.
 - Each step should be actionable and specific
 - Include expected outcomes
 - Note any prerequisites or setup required
+- Check to see if we added any test functions in `wp-content/mu-plugins/0-sandbox.php` that need to be used in testing.
 ```
 
 ## Additional Guidelines
