@@ -35,6 +35,7 @@
 	fileMode = false
 	text=auto
 	pager = delta
+	hooksPath = /Users/mark/.config/git/hooks
 
 [interactive]
 	diffFilter = delta --color-only

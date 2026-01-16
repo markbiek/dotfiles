@@ -1,0 +1,109 @@
+#!/bin/bash
+#
+# pre-commit hook: Run Claude Code review on staged changes
+#
+# Skip with: SKIP_REVIEW=1 git commit
+# Or:        git commit --no-verify
+#
+
+set -e
+
+# =============================================================================
+# Configuration
+# =============================================================================
+
+# Colors (disabled if not a terminal)
+if [ -t 1 ]; then
+  RED='\033[0;31m'
+  GREEN='\033[0;32m'
+  YELLOW='\033[0;33m'
+  BLUE='\033[0;34m'
+  NC='\033[0m' # No Color
+else
+  RED='' GREEN='' YELLOW='' BLUE='' NC=''
+fi
+
+# =============================================================================
+# Skip conditions
+# =============================================================================
+
+# Explicit skip via environment variable
+if [ "${SKIP_REVIEW:-0}" = "1" ]; then
+  echo -e "${YELLOW}Skipping review (SKIP_REVIEW=1)${NC}"
+  exit 0
+fi
+
+# Skip during rebase
+if [ -d ".git/rebase-merge" ] || [ -d ".git/rebase-apply" ]; then
+  exit 0
+fi
+
+# Skip during merge
+if [ -f ".git/MERGE_HEAD" ]; then
+  exit 0
+fi
+
+# Skip during cherry-pick
+if [ -f ".git/CHERRY_PICK_HEAD" ]; then
+  exit 0
+fi
+
+# Skip if no staged changes
+if git diff --cached --quiet; then
+  exit 0
+fi
+
+# Skip for very small changes (e.g., typo fixes)
+# Threshold: fewer than this many lines changed
+MIN_LINES_FOR_REVIEW=5
+lines_changed=$(git diff --cached --numstat | awk '{ add += $1; del += $2 } END { print add + del }')
+if [ "${lines_changed:-0}" -lt "$MIN_LINES_FOR_REVIEW" ]; then
+  echo -e "${BLUE}Skipping review (only ${lines_changed} lines changed)${NC}"
+  exit 0
+fi
+
+# Skip if claude isn't available
+if ! command -v claude &> /dev/null; then
+  echo -e "${YELLOW}Warning: claude not found, skipping review${NC}"
+  exit 0
+fi
+
+# =============================================================================
+# Run the review
+# =============================================================================
+
+echo -e "${BLUE}Running Claude Code review on staged changes...${NC}"
+echo ""
+
+# Use --print flag to run non-interactively and print output
+claude --print "Review the following staged changes for issues. Identify edge cases, security or performance concerns, readability issues, and test quality if applicable. Be concise.
+
+\`\`\`diff
+$(git diff --cached)
+\`\`\`"
+
+echo ""
+
+# =============================================================================
+# Prompt for confirmation
+# =============================================================================
+
+# Only prompt if we're in an interactive terminal
+if [ -t 0 ]; then
+  echo -e "${YELLOW}─────────────────────────────────────────${NC}"
+  read -p "Proceed with commit? [Y/n] " -n 1 -r
+  echo ""
+
+  # Default to yes (empty response or Y/y proceeds)
+  if [[ $REPLY =~ ^[Nn]$ ]]; then
+    echo -e "${RED}Commit aborted.${NC}"
+    exit 1
+  fi
+
+  echo -e "${GREEN}Proceeding with commit...${NC}"
+else
+  # Non-interactive: proceed without prompting
+  echo -e "${YELLOW}Non-interactive mode, proceeding with commit${NC}"
+fi
+
+exit 0
