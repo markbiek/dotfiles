@@ -81,5 +81,18 @@
   },
   "feedbackSurveyState": {
     "lastShownTime": 1754082569934
+  },
+  "hooks": {
+    "Notification": [
+      {
+        "matcher": "permission_prompt|idle_prompt|elicitation_dialog",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/bell.sh"
+          }
+        ]
+      }
+    ]
   }
 }
