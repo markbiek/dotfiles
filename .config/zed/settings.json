@@ -35,7 +35,7 @@
     "case_sensitive": true,
     "regex": true,
   },
-  "theme": "Gruvbox Dark",
+  "theme": "Pink Blurred",
   "telemetry": {
     "diagnostics": false,
     "metrics": false,
