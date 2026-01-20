@@ -1,0 +1,10 @@
+[user]
+	email = mark.biek@automattic.com
+
+[core]
+	excludesfile = /home/wpcom/.gitignore
+	pager = less -+F -+X
+	hooksPath = /home/wpcom/.config/git/hooks
+
+[interactive]
+	diffFilter =

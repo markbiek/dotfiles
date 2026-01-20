@@ -1,6 +1,6 @@
 [user]
 	name = Mark Biek
-	email = mark.biek@automattic.com
+	email = support@janustech.net
 	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJyDpSKQFXXgcoxciZEPSYeKeeUkPUNJaSyfabfKwOyY
 
 [gpg]
@@ -63,7 +63,7 @@
 
 [alias]
 	alias = config --get-regexp alias
-	nm = branch --no-merged     
+	nm = branch --no-merged
 	branches = branch -a
 	st = status
 	s = status --short --branch
@@ -81,7 +81,7 @@
 	cleanupmaster = !git branch --merged master | grep -v 'master$' | xargs  git branch -d
 	pushup = !git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)
 	sync = !git upstream --no-verify && git pushup --no-verify
-	pullbase = !~/dev/dotfiles/git/pullbase.py --remote-branch 
+	pullbase = !~/dev/dotfiles/git/pullbase.py --remote-branch
 	up = !git pull --rebase --prune $@ && git submodule update --init --recursive
 	upstream = !git pull upstream $(git rev-parse --abbrev-ref HEAD) --rebase --prune $@
 	save = !git add -A && git commit -m 'SAVEPOINT'
@@ -118,3 +118,15 @@
 	required = true
 [init]
 	defaultBranch = main
+
+# Automattic repos on GitHub - use work email
+[includeIf "hasconfig:remote.*.url:git@github.com:Automattic/**"]
+	path = .gitconfig-a8c
+[includeIf "hasconfig:remote.*.url:https://github.com/Automattic/**"]
+	path = .gitconfig-a8c
+
+# Sandbox environments - override paths and disable delta
+[includeIf "gitdir:/home/wpcom/public_html/"]
+	path = .gitconfig-a8c-sandbox
+[includeIf "gitdir:/home/missioncontrol/public_html/"]
+	path = .gitconfig-a8c-sandbox
