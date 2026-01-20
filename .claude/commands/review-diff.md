@@ -3,7 +3,7 @@ description: Review current, unstaged changes for issues.
 allowed-tools: Bash(git status:*), Bash(git diff:*), Bash(git log:*), Read, Grep, Glob
 ---
 
-Review unstaged changes and provide a structured code review.
+Review unstaged changes and provide a structured code review. Compare it to existing code, and list any feedback, questions, areas of improvement or concerns in markdown format. Deeply research how it interacts with existing code, and raise any potential bugs or performance issues that may arise. Focus on security and WordPress best practices and coding standards.
 
 ## Context
 - Current git status: !`git status --short`
