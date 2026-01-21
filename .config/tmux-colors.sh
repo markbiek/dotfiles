@@ -10,10 +10,10 @@ function set_tmux_color_by_dir() {
     /Users/mark/dev/a8c/jetpack*|*/jetpack)
       color="#44aa44"  # green
       ;;
-    /home/wpcom/public_html*)
+    /home/wpcom/public_html*|/Users/mark/dev/a8c/sandbox/wpcom/public_html*)
       color="#224488"  # dark blue
       ;;
-    /home/missioncontrol/public_html*)
+    /home/missioncontrol/public_html*|/Users/mark/dev/a8c/sandbox/missioncontrol/public_html*)
       color="#cc4444"  # red
       ;;
     *)
