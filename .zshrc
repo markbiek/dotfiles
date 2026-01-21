@@ -65,6 +65,15 @@ setopt HIST_VERIFY               # Don't execute immediately upon history expans
 setopt HIST_BEEP                 # Beep when accessing nonexistent history.
 ############################################################################
 
+############################################################################
+# tmux colors
+source ~/.config/tmux-colors.sh
+
+function chpwd() {
+  set_tmux_color_by_dir
+}
+chpwd  # run on shell startup
+
 
 ################################################################################
 # OS-specific Aliases
@@ -110,3 +119,4 @@ fi
 
 export PATH="~/.composer/vendor/bin/:~/.local/bin:$PATH"
 eval "$(~/.local/bin/mise activate zsh)"
+alias vim="nvim"

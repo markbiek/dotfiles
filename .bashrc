@@ -18,6 +18,10 @@ export PS1='\[\033[01;33m\]\u@\H\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/mysql/bin:~/public_html/bin
 umask 022
 
+source ~/.config/tmux-colors.sh
+
+PROMPT_COMMAND="set_tmux_color_by_dir${PROMPT_COMMAND:+;$PROMPT_COMMAND}"
+
 export LS_OPTIONS='--color=auto'
 eval "`dircolors`"
 
@@ -56,3 +60,4 @@ if [[ -S "$SSH_AUTH_SOCK" && "$SSH_AUTH_SOCK" != "$HOME/.ssh/auth_sock" ]]; then
     fi
     export SSH_AUTH_SOCK="$HOME/.ssh/auth_sock"
 fi
+alias vim="nvim"
