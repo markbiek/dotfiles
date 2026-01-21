@@ -6,6 +6,10 @@ alias tt="tmux a -t"
 alias tn="tmux new -s"
 alias th="~/bin/th"
 
+# rename existing tmux session
+# ctrl-b $ (type name)
+# tmux rename-session -t 0 myproject (renames 0 to myproject)
+
 alias nvmrc="node -v > .nvmrc"
 
 alias python="/usr/bin/python3"
