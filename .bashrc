@@ -61,3 +61,4 @@ if [[ -S "$SSH_AUTH_SOCK" && "$SSH_AUTH_SOCK" != "$HOME/.ssh/auth_sock" ]]; then
     export SSH_AUTH_SOCK="$HOME/.ssh/auth_sock"
 fi
 alias vim="nvim"
+alias vi="nvim"

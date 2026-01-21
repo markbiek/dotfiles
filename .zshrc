@@ -120,3 +120,4 @@ fi
 export PATH="~/.composer/vendor/bin/:~/.local/bin:$PATH"
 eval "$(~/.local/bin/mise activate zsh)"
 alias vim="nvim"
+alias vi="nvim"
