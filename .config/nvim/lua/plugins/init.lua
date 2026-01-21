@@ -1,11 +1,11 @@
 return {
   -- Colorscheme
   {
-    "folke/tokyonight.nvim",
+    "sonjapeterson/1989.vim",
     lazy = false,
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme("tokyonight-night")
+      vim.cmd.colorscheme("1989")
     end,
   },
 
@@ -71,7 +71,7 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
       require("lualine").setup({
-        options = { theme = "tokyonight" },
+        options = { theme = "auto" },
       })
     end,
   },
