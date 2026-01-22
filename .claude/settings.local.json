@@ -31,7 +31,8 @@
       "Bash(~/.zshrc)",
       "Bash(~/.bashrc)",
       "Bash(composer global require:*)",
-      "Bash(~/.composer/vendor/bin/phpcs:*)"
+      "Bash(~/.composer/vendor/bin/phpcs:*)",
+      "Bash(printenv:*)"
     ]
   }
 }
