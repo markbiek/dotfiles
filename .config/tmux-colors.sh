@@ -16,6 +16,9 @@ function set_tmux_color_by_dir() {
     /home/missioncontrol/public_html*|/Users/mark/dev/a8c/sandbox/missioncontrol/public_html*)
       color="#cc4444"  # red
       ;;
+    /Users/mark/.hammerspoon*)
+      color="#f5da27"  # yellow
+      ;;
     *)
       color="#444444"  # default gray
       ;;
