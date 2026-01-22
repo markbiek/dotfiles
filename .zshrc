@@ -66,11 +66,11 @@ setopt HIST_BEEP                 # Beep when accessing nonexistent history.
 ############################################################################
 
 ############################################################################
-# tmux colors
-source ~/.config/tmux-colors.sh
+# iTerm2 tab colors based on directory
+source ~/.config/iterm-colors.sh
 
 function chpwd() {
-  set_tmux_color_by_dir
+  set_iterm_color_by_dir
 }
 chpwd  # run on shell startup
 
