@@ -117,7 +117,7 @@ if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 
-export PATH="~/.composer/vendor/bin/:~/.local/bin:$PATH"
+export PATH="$HOME/.composer/vendor/bin:$HOME/.local/bin:$PATH"
 eval "$(~/.local/bin/mise activate zsh)"
 alias vim="nvim"
 alias vi="nvim"

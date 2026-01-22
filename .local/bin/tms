@@ -1,0 +1,67 @@
+#!/usr/bin/env bash
+#
+# tms - tmux session manager
+# Creates or attaches to tmux sessions with project-specific layouts
+
+set -euo pipefail
+
+CONFIG_DIR="$HOME/.config/tmux-start"
+
+# Load configuration
+source "$CONFIG_DIR/config.sh"
+
+# Get target directory (default to current)
+target_dir="${1:-.}"
+target_dir="$(cd "$target_dir" && pwd)"
+
+# Derive session name from directory (last component, sanitized)
+session_name="$(basename "$target_dir" | tr '.' '_')"
+
+# Check if session already exists
+if tmux has-session -t "$session_name" 2>/dev/null; then
+  echo "Attaching to existing session: $session_name"
+  exec tmux attach -t "$session_name"
+fi
+
+# Find matching profile and project
+profile=""
+project=""
+
+for pattern in "${!DIR_MAPPINGS[@]}"; do
+  # Use bash pattern matching
+  if [[ "$target_dir" == $pattern* ]]; then
+    mapping="${DIR_MAPPINGS[$pattern]}"
+    profile="${mapping%%:*}"
+    if [[ "$mapping" == *:* ]]; then
+      project="${mapping#*:}"
+    fi
+    break
+  fi
+done
+
+# Fall back to default profile
+if [[ -z "$profile" ]]; then
+  profile="$DEFAULT_PROFILE"
+fi
+
+# Load and run profile
+profile_script="$CONFIG_DIR/profiles/$profile.sh"
+if [[ ! -f "$profile_script" ]]; then
+  echo "Error: Profile '$profile' not found at $profile_script" >&2
+  exit 1
+fi
+
+source "$profile_script"
+setup_layout "$session_name" "$target_dir"
+
+# Load and run project commands if specified
+if [[ -n "$project" ]]; then
+  project_script="$CONFIG_DIR/projects/$project.sh"
+  if [[ -f "$project_script" ]]; then
+    source "$project_script"
+    run_project_commands "$session_name"
+  fi
+fi
+
+echo "Created session: $session_name (profile: $profile${project:+, project: $project})"
+exec tmux attach -t "$session_name"
