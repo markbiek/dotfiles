@@ -32,7 +32,8 @@
       "Bash(~/.bashrc)",
       "Bash(composer global require:*)",
       "Bash(~/.composer/vendor/bin/phpcs:*)",
-      "Bash(printenv:*)"
+      "Bash(printenv:*)",
+      "Bash(composer global update:*)"
     ]
   }
 }
