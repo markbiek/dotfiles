@@ -56,6 +56,12 @@ return {
     end,
   },
 
+  -- GitHub Copilot
+  {
+    "github/copilot.vim",
+    lazy = false,
+  },
+
   -- Quality of life
   { "tpope/vim-sleuth" },  -- Auto-detect indent settings
   { "numToStr/Comment.nvim", config = true },  -- gcc to comment
