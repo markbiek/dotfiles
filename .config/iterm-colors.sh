@@ -7,6 +7,12 @@ function set_iterm_color_by_dir() {
 
   local hex
   case "$PWD" in
+    /Users/mark/Dropbox/Docs/notes*)
+      hex="dedede"  # off-white
+      ;;
+    /Users/mark/dev/personal/media.biek.dev*)
+      hex="ea627f5" # purple
+      ;;
     /Users/mark/dev/a8c/calypso*|*/calypso)
       hex="5599dd"  # light blue
       ;;
