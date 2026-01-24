@@ -2,18 +2,43 @@
 
 system_type=$(uname -s)
 
+# ============================================
+# Clone dotfiles-private if not present
+# ============================================
+PRIVATE_REPO="git@github.com:markbiek/dotfiles-private.git"
+PRIVATE_DIR="$HOME/dev/dotfiles-private"
+
+if [[ ! -d "$PRIVATE_DIR" ]]; then
+    echo "Cloning dotfiles-private..."
+    mkdir -p "$HOME/dev"
+    git clone "$PRIVATE_REPO" "$PRIVATE_DIR"
+fi
+
+# Symlink secrets file
+if [[ -f "$PRIVATE_DIR/secrets/env" ]]; then
+    echo "Linking secrets..."
+    ln -sf "$PRIVATE_DIR/secrets/env" "$HOME/.secrets"
+else
+    echo "Warning: $PRIVATE_DIR/secrets/env not found"
+fi
+
+# ============================================
+# macOS-specific setup
+# ============================================
 if [[ $OSTYPE == darwin* ]]; then
 
-  # install homebrew if it's missing
-  if ! command -v brew >/dev/null 2>&1; then
-    echo "Installing homebrew"
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  fi
+    # Install homebrew if missing
+    if ! command -v brew >/dev/null 2>&1; then
+        echo "Installing homebrew..."
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    fi
 
-  if [ -f "$HOME/.Brewfile" ]; then
-    echo "Updating homebrew bundle"
-    brew bundle --global
-  fi
+    # Run brew bundle
+    if [ -f "$HOME/.Brewfile" ]; then
+        echo "Updating homebrew bundle..."
+        brew bundle --global
+    fi
 
 fi
 
+echo "Bootstrap complete!"

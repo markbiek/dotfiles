@@ -20,3 +20,4 @@ hyper/hyper_plugins/cache/
 .config/zed/.tmp*
 .config/zed/embeddings/
 .config/zed/prompts/
+.secrets
