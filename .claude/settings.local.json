@@ -33,7 +33,17 @@
       "Bash(composer global require:*)",
       "Bash(~/.composer/vendor/bin/phpcs:*)",
       "Bash(printenv:*)",
-      "Bash(composer global update:*)"
+      "Bash(composer global update:*)",
+      "Bash(git ls-tree:*)",
+      "Bash(yadm clone:*)",
+      "Bash(/opt/homebrew/bin/yadm status:*)",
+      "Bash(bash -c 'cd /Users/mark && pwd && ls -la ~/.local/share/yadm/')",
+      "Bash(/bin/bash -c 'cd /Users/mark && pwd')",
+      "Bash(/bin/echo:*)",
+      "Bash(/bin/bash -lc 'cd /Users/mark && yadm status')",
+      "Bash(yadm version:*)",
+      "Bash(/bin/ls:*)",
+      "Bash(test:*)"
     ]
   }
 }
