@@ -33,6 +33,11 @@ if [ "${SKIP_REVIEW:-0}" = "1" ]; then
   exit 0
 fi
 
+# Skip for yadm (uses GIT_DIR pointing to yadm repo)
+if [[ "${GIT_DIR:-}" == *"yadm/repo.git"* ]]; then
+  exit 0
+fi
+
 # Skip during rebase
 if [ -d ".git/rebase-merge" ] || [ -d ".git/rebase-apply" ]; then
   exit 0
