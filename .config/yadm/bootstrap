@@ -23,6 +23,24 @@ else
 fi
 
 # ============================================
+# Clone and install tms (tmux session manager)
+# ============================================
+TMS_REPO="git@github.com:markbiek/tms.git"
+TMS_DIR="$HOME/dev/personal/tms"
+
+if [[ ! -d "$TMS_DIR" ]]; then
+    echo "Cloning tms..."
+    mkdir -p "$HOME/dev/personal"
+    git clone "$TMS_REPO" "$TMS_DIR"
+fi
+
+# Run tms install script
+if [[ -f "$TMS_DIR/install.sh" ]]; then
+    echo "Installing tms..."
+    "$TMS_DIR/install.sh"
+fi
+
+# ============================================
 # macOS-specific setup
 # ============================================
 if [[ $OSTYPE == darwin* ]]; then
