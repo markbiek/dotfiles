@@ -1,6 +1,6 @@
 ---
 description: Official WordPress coding standards from https://github.com/WordPress/wpcs-docs/blob/master/wordpress-coding-standards/javascript.md
-globs: *.js,*.jsx,*.ts,.tsc
+globs: *.js,*.jsx,*.ts,*.tsx
 alwaysApply: false
 ---
 # WordPress JavaScript Coding Standards
