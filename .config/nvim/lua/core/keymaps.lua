@@ -1,4 +1,4 @@
-vim.g.mapleader = " "  -- Space as leader key
+vim.g.mapleader = "\\"  -- Backslash as leader key
 
 local keymap = vim.keymap.set
 

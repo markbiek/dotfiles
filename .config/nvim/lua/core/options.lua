@@ -27,7 +27,7 @@ opt.splitright = true
 opt.splitbelow = true
 opt.undofile = true  -- Persistent undo
 opt.updatetime = 250
-opt.timeoutlen = 300
+opt.timeoutlen = 500
 
 -- Clipboard (works on macOS and Linux with xclip/xsel)
 opt.clipboard = "unnamedplus"

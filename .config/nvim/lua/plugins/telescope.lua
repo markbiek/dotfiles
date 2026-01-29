@@ -14,6 +14,9 @@ return {
 
     telescope.setup({
       defaults = {
+        preview = {
+          treesitter = false,  -- Disable treesitter highlighting in previewer (fixes ft_to_lang error)
+        },
         path_display = { "truncate" },
         mappings = {
           i = {
