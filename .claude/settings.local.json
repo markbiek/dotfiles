@@ -43,7 +43,8 @@
       "Bash(/bin/bash -lc 'cd /Users/mark && yadm status')",
       "Bash(yadm version:*)",
       "Bash(/bin/ls:*)",
-      "Bash(test:*)"
+      "Bash(test:*)",
+      "Bash(python3:*)"
     ]
   }
 }
