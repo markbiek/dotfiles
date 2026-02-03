@@ -30,7 +30,16 @@
       "Read(/tmp/**)",
       "Write(/tmp/**)",
       "Read(**/plans/**)",
-      "Write(**/plans/**)"
+      "Write(**/plans/**)",
+      "Bash(node --check:*)",
+      "Bash(node:*)",
+      "Bash(npm show:*)",
+      "Bash(~/.composer/vendor/bin/phpcbf:*)",
+      "Bash(php:*)",
+      "Bash(brew list:*)",
+      "Bash(mise list:*)",
+      "Bash(brew search:*)",
+      "Bash(pip3 install:*)"
     ]
   }
 }
