@@ -17,6 +17,18 @@ autocmd("TextYankPost", {
   end,
 })
 
+-- Locate file in nvim-tree when opening via Telescope
+augroup("NvimTreeLocate", { clear = true })
+autocmd("BufEnter", {
+  group = "NvimTreeLocate",
+  callback = function()
+    local api = require("nvim-tree.api")
+    if api.tree.is_visible() then
+      api.tree.find_file({ open = false, focus = false })
+    end
+  end,
+})
+
 -- File type specific settings
 augroup("FileTypeSettings", { clear = true })
 autocmd("FileType", {

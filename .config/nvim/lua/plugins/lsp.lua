@@ -22,11 +22,10 @@ return {
     dependencies = {
       "williamboman/mason.nvim",
       "williamboman/mason-lspconfig.nvim",
-      "hrsh7th/cmp-nvim-lsp",
     },
     config = function()
-      -- Capabilities for completion
-      local capabilities = require("cmp_nvim_lsp").default_capabilities()
+      -- Default capabilities (without nvim-cmp)
+      local capabilities = vim.lsp.protocol.make_client_capabilities()
 
       -- Keymaps when LSP attaches to buffer
       vim.api.nvim_create_autocmd("LspAttach", {

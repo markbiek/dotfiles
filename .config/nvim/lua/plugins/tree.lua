@@ -7,6 +7,10 @@ return {
     vim.g.loaded_netrwPlugin = 1
 
     require("nvim-tree").setup({
+      sync_root_with_cwd = true,
+      update_focused_file = {
+        enable = true,
+      },
       view = {
         width = 35,
       },

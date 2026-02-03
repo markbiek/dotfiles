@@ -18,9 +18,6 @@ return {
   -- LSP
   require("plugins.lsp"),
 
-  -- Completion
-  require("plugins.completion"),
-
   -- Formatting
   require("plugins.formatting"),
 

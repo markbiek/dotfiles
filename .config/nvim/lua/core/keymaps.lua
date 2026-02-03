@@ -2,8 +2,11 @@ vim.g.mapleader = "\\"  -- Backslash as leader key
 
 local keymap = vim.keymap.set
 
--- File tree toggle
+-- File tree
 keymap("n", "<leader>e", ":NvimTreeToggle<CR>", { desc = "Toggle file tree" })
+keymap("n", "<leader>ef", ":NvimTreeFocus<CR>", { desc = "Focus file tree" })
+keymap("n", "<leader>el", ":NvimTreeFindFile<CR>", { desc = "Locate current file in tree" })
+keymap("n", "<leader>ec", ":NvimTreeCollapse<CR>", { desc = "Collapse file tree" })
 
 -- Telescope (fuzzy finding)
 keymap("n", "<leader>ff", ":Telescope find_files<CR>", { desc = "Find files" })
