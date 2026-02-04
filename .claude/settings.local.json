@@ -39,7 +39,15 @@
       "Bash(brew list:*)",
       "Bash(mise list:*)",
       "Bash(brew search:*)",
-      "Bash(pip3 install:*)"
+      "Bash(pip3 install:*)",
+      "Skill(linear-solve)",
+      "Bash(claude mcp list)",
+      "mcp__context-a8c__context-a8c-load-provider",
+      "mcp__context-a8c__context-a8c-execute-tool",
+      "Skill(context-a8c:setup)",
+      "Skill(superpowers:brainstorming)",
+      "Skill(snap-post)",
+      "Bash(GH_HOST=github.a8c.com gh pr list:*)"
     ]
   }
 }

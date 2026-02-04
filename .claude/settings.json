@@ -94,7 +94,8 @@
     "mermaid-diagram-to-image@emdashcodes-claude-code-plugins": true,
     "superpowers@claude-plugins-official": true,
     "github-enterprise@automattic-claude-code-plugins": true,
-    "triage@automattic-claude-code-plugins": true
+    "triage@automattic-claude-code-plugins": true,
+    "context-a8c@automattic-claude-code-plugins": true
   },
   "mcpServers": {
     "simplenote": {

@@ -22,6 +22,7 @@ Available skills and when to invoke them
 - `/wpcom-deploy-safety` — Check PHP changesets for mid-deploy fatal risks on WordPress.com
 - `/investigate` — Hypothesis-driven investigation: generate hypotheses, test with data, rank by evidence, challenge winners, save results
 - `/skill-creator` — Create or edit skills that extend Claude's capabilities
+- `/snap-post` — Generate biweekly SNAP status posts for the Quake team
 
 ### Superpowers
 - `brainstorming` — Before any creative work: features, components, modifications
