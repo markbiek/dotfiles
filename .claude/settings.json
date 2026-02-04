@@ -1,12 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
   "cleanupPeriodDays": 30,
-  "mcpServers": {
-    "simplenote": {
-      "command": "node",
-      "args": ["/Users/mark/dev/personal/simplenote-mcp/server.js"]
-    }
-  },
   "env": {
     "CLAUDE_CODE_ENABLE_TELEMETRY": "0"
   },
@@ -98,7 +92,17 @@
   },
   "enabledPlugins": {
     "mermaid-diagram-to-image@emdashcodes-claude-code-plugins": true,
-    "superpowers@claude-plugins-official": true
+    "superpowers@claude-plugins-official": true,
+    "github-enterprise@automattic-claude-code-plugins": true,
+    "triage@automattic-claude-code-plugins": true
+  },
+  "mcpServers": {
+    "simplenote": {
+      "command": "node",
+      "args": [
+        "/Users/mark/dev/personal/simplenote-mcp/server.js"
+      ]
+    }
   },
   "feedbackSurveyState": {
     "lastShownTime": 1754082569934
