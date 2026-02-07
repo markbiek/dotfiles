@@ -1,0 +1,56 @@
+export PATH="$PATH:/Users/mark/bin:~/.composer/vendor/bin"
+
+export ANDROID_HOME=$HOME/Library/Android/sdk
+
+export PATH="/Users/mark/Library/Python/3.8/bin":$PATH
+
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+export PATH="/usr/local/Cellar/mysql@5.7/5.7.32/bin:$PATH"
+export PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
+export PATH="/usr/local/opt/ruby/bin:$PATH"
+export PATH="/Users/mark/.ebcli-virtual-env/executables:$PATH"
+export PATH="$JAVA_HOME/bin:$PATH"
+export PATH="/Users/mark/cmdline-tools/bin:/Users/mark/cmdline-tools/platform-tools:$PATH"
+
+export PATH="/usr/local/bin:/opt/homebrew/bin/:~/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
+
+# pnpm
+export PNPM_HOME="/Users/mark/Library/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end
+
+export PATH="/opt/homebrew/opt/php@8.4/bin:$PATH"
+export PATH="/opt/homebrew/opt/php@8.4/sbin:$PATH"
+
+# Lando
+export PATH="/Users/mark/.lando/bin${PATH+:$PATH}"; #landopath
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/mark/.lmstudio/bin"
+
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+export PATH="/opt/homebrew/Cellar/brew-php-switcher/2.6/bin:$PATH"
+export PATH="/Users/mark/bin:$PATH"
+export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
+export JAVA_HOME=$(/opt/homebrew/bin/brew --prefix openjdk)
+
+# Created by `pipx` on 2025-06-25 14:52:41
+export PATH="$PATH:/Users/mark/.local/bin"
+
+export LDFLAGS="-L/usr/local/opt/ruby/lib"
+export CPPFLAGS="-I/usr/local/opt/ruby/include"
+
+export PATH=~/.fnm:$PATH
+eval "`fnm env --use-on-cd`"
+
+# fnm
+export PATH=/Users/mark/.fnm:$PATH
+eval "$(fnm env --use-on-cd)"
