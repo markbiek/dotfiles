@@ -17,6 +17,7 @@ alias pip="python -m pip"
 alias sail="[ -f sail ] && bash sail || bash vendor/bin/sail"
 
 alias trunk="git co trunk && git pull"
+alias ccd="claude --dangerously-skip-permissions"
 alias rebase-trunk="git pull --rebase origin trunk"
 
 recent-branches() {
