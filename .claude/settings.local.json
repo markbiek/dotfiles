@@ -47,7 +47,18 @@
       "Skill(context-a8c:setup)",
       "Skill(superpowers:brainstorming)",
       "Skill(snap-post)",
-      "Bash(GH_HOST=github.a8c.com gh pr list:*)"
+      "Bash(GH_HOST=github.a8c.com gh pr list:*)",
+      "Bash(gh api:*)",
+      "Bash(gh repo create:*)",
+      "Bash(GH_HOST=github.a8c.com gh repo create:*)",
+      "Bash(git push:*)",
+      "Bash(GH_HOST=github.a8c.com gh run list:*)",
+      "Bash(GH_HOST=github.a8c.com gh run view:*)",
+      "Bash(GH_HOST=github.a8c.com gh run rerun:*)",
+      "Bash(mise ls:*)",
+      "Bash(mise current:*)",
+      "Bash(# Look for fnm setup anywhere common grep -rh \"\"fnm\"\" ~/.*rc ~/.*profile)",
+      "Bash(# Check for mise activation in zshrc grep -E \"\"\\(mise|rtx\\)\"\" ~/.zshrc)"
     ]
   }
 }
