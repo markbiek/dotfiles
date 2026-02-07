@@ -36,3 +36,48 @@ keymap("n", "<Esc>", ":nohlsearch<CR>", { silent = true })
 
 -- Quick save
 keymap("n", "<leader>w", ":w<CR>", { desc = "Save file" })
+
+-- Buffer switching by position in the listed buffer list
+local function get_listed_bufs()
+	return vim.tbl_filter(function(b)
+		return vim.bo[b].buflisted
+	end, vim.api.nvim_list_bufs())
+end
+
+local function go_to_buf_by_index(index)
+	local bufs = get_listed_bufs()
+	if bufs[index] then
+		vim.api.nvim_set_current_buf(bufs[index])
+	end
+end
+
+local function buf_position_info()
+	local bufs = get_listed_bufs()
+	local current = vim.api.nvim_get_current_buf()
+	for i, b in ipairs(bufs) do
+		if b == current then
+			return i, #bufs
+		end
+	end
+	return nil, #bufs
+end
+
+for i = 1, 9 do
+	keymap("n", "<leader>" .. i, function()
+		go_to_buf_by_index(i)
+		local pos, total = buf_position_info()
+		if pos then
+			vim.notify("[" .. pos .. "/" .. total .. "]", vim.log.levels.INFO)
+		end
+	end, { desc = "Go to buffer " .. i })
+end
+
+-- Show current buffer position
+keymap("n", "<leader>bi", function()
+	local pos, total = buf_position_info()
+	if pos then
+		vim.notify("Buffer [" .. pos .. "/" .. total .. "]", vim.log.levels.INFO)
+	else
+		vim.notify("Buffer not in list", vim.log.levels.WARN)
+	end
+end, { desc = "Show buffer position" })
