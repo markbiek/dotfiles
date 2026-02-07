@@ -13,7 +13,7 @@ Team members and their identifiers across systems:
 
 | Name     | GitHub.com | github.a8c.com | Linear Display Name      | Slack ID    |
 |----------|------------|----------------|--------------------------|-------------|
-| Mark     | markbiek   | TODO           | markbiek                 | U02P8T5JWF9 |
+| Mark     | markbiek   | markbiek       | markbiek                 | U02P8T5JWF9 |
 | Luis     | zaguiini   | zaguiini       | luis.felipe.zaguini      | U027412KDAQ |
 | Leonardo | leonardost | leotaba        | leonardo.taba            | U01DZTXSCRE |
 | Paulo    | paulopmt1  | paulopmt1      | paulopmt1                | U02RDMUMUBV |
